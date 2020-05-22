@@ -22,8 +22,8 @@ import org.smartregister.chw.tb.domain.TbMemberObject
 import org.smartregister.chw.tb.interactor.BaseTbProfileInteractor
 import org.smartregister.chw.tb.presenter.BaseTbProfilePresenter
 import org.smartregister.chw.tb.util.Constants
-import org.smartregister.chw.tb.util.Util.fromHtml
-import org.smartregister.chw.tb.util.Util.getMemberProfileImageResourceIDentifier
+import org.smartregister.chw.tb.util.TbUtil.fromHtml
+import org.smartregister.chw.tb.util.TbUtil.getMemberProfileImageResourceIDentifier
 import org.smartregister.domain.AlertStatus
 import org.smartregister.helper.ImageRenderHelper
 import org.smartregister.view.activity.BaseProfileActivity
@@ -132,7 +132,7 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
             BaseTbProfilePresenter(this, BaseTbProfileInteractor(), tbMemberObject!!)
     }
 
-    private fun initializeCallFAB() {
+    fun initializeCallFAB() {
         if (StringUtils.isNotBlank(tbMemberObject!!.phoneNumber)
             || StringUtils.isNotBlank(tbMemberObject!!.familyHeadPhoneNumber)
         ) {
@@ -175,8 +175,8 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
     override fun setupFollowupVisitEditViews(isWithin24Hours: Boolean) {
         if (isWithin24Hours) {
             recordFollowUpVisitLayout!!.visibility = View.GONE
-//            recordVisitStatusBarLayout.setVisibility(View.VISIBLE);
-//            tvEditVisit.setVisibility(View.VISIBLE);
+            recordVisitStatusBarLayout!!.visibility = View.VISIBLE;
+            tvEditVisit!!.visibility = View.VISIBLE;
         } else {
             tvEditVisit!!.visibility = View.GONE
             recordFollowUpVisitLayout!!.visibility = View.VISIBLE

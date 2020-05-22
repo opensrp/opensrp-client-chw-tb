@@ -8,7 +8,7 @@ import org.smartregister.chw.tb.TbLibrary
 import org.smartregister.chw.tb.contract.BaseRegisterFormsContract
 import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.JsonFormUtils
-import org.smartregister.chw.tb.util.Util.processEvent
+import org.smartregister.chw.tb.util.TbUtil.processEvent
 import timber.log.Timber
 import java.util.*
 

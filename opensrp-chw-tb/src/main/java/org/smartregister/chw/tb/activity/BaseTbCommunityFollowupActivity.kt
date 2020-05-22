@@ -42,7 +42,7 @@ import java.io.FileNotFoundException
 /**
  * The base class for tb followup activity. implements [BaseTbFollowupContract.View]
  */
-open class BaseTbFollowupActivity : AppCompatActivity(), BaseTbFollowupContract.View {
+open class BaseTbCommunityFollowupActivity : AppCompatActivity(), BaseTbFollowupContract.View {
 
     protected var tbMemberObject: TbMemberObject? = null
     protected var formName: String? = null

@@ -85,4 +85,5 @@
     <string name="empty_value">None</string>
     <string name="save">Save</string>
 
+    <string name="tb_follow_up_visit">TB Follow Up Visit</string>
 </resources>

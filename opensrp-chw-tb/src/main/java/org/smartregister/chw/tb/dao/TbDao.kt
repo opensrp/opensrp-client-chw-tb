@@ -2,12 +2,13 @@ package org.smartregister.chw.tb.dao
 
 import android.database.Cursor
 import org.smartregister.chw.anc.domain.Visit
+import org.smartregister.chw.tb.domain.TbAlertObject
 import org.smartregister.chw.tb.domain.TbMemberObject
 import org.smartregister.chw.tb.util.DBConstants
-import org.smartregister.commonregistry.CommonPersonObjectClient
 import org.smartregister.dao.AbstractDao
 import org.smartregister.dao.AbstractDao.DataMap
-import java.text.SimpleDateFormat
+import timber.log.Timber
+import java.math.BigDecimal
 import java.util.*
 
 object TbDao : AbstractDao() {
@@ -79,15 +80,19 @@ object TbDao : AbstractDao() {
                 memberObject.familyHeadPhoneNumber =
                     getCursorValue(cursor, DBConstants.Key.FAMILY_HEAD_PHONE_NUMBER, "")
                 memberObject.tbRegistrationDate =
-                    getCursorValueAsDate(cursor, DBConstants.Key.TB_REGISTRATION_DATE)
+                    Date(BigDecimal(getCursorValue(cursor, DBConstants.Key.TB_REGISTRATION_DATE)).toLong())
                 memberObject.communityClientTbRegistrationNumber =
-                    getCursorValue(cursor, DBConstants.Key.COMMUNITY_CLIENT_TB_REGISTRATION_NUMBER, "")
+                    getCursorValue(
+                        cursor,
+                        DBConstants.Key.COMMUNITY_CLIENT_TB_REGISTRATION_NUMBER,
+                        ""
+                    )
                 memberObject.clientTbStatusDuringRegistration =
                     getCursorValue(cursor, DBConstants.Key.CLIENT_TB_STATUS_DURING_REGISTRATION, "")
                 memberObject.clientTbStatusAfterTesting =
                     getCursorValue(cursor, DBConstants.Key.CLIENT_TB_STATUS_AFTER_TESTING, "")
                 memberObject.isClosed =
-                    getCursorIntValue(cursor, DBConstants.Key.IS_CLOSED, 0)==1
+                    getCursorIntValue(cursor, DBConstants.Key.IS_CLOSED, 0) == 1
                 var familyHeadName =
                     (getCursorValue(cursor, "family_head_first_name", "") + " "
                             + getCursorValue(cursor, "family_head_middle_name", ""))
@@ -113,19 +118,18 @@ object TbDao : AbstractDao() {
     }
 
     @JvmStatic
-    fun getLatestTbVisit(baseEntityId: String, entityType: String): Visit? {
+    fun getTbVisitsMedicalHistory(baseEntityId: String): List<Visit>? {
         val sql =
             """SELECT visit_date, visit_id,visit_type, parent_visit_id
                FROM Visits v
-               INNER JOIN ec_tb_register tb on hv.base_entity_id = v.base_entity_id
+               INNER JOIN ec_tb_register tb on tb.base_entity_id = v.base_entity_id
                WHERE v.base_entity_id = '${baseEntityId}' COLLATE NOCASE
-                    AND v.visit_type = '${entityType}' COLLATE NOCASE
                     AND strftime('%Y%d%m', (datetime(v.visit_date/1000, 'unixepoch')))  >= substr(tb.tb_registration_date,7,4) || substr(tb.tb_registration_date,4,2) || substr(tb.tb_registration_date,1,2)
                "ORDER BY v.visit_date DESC"""
-        val visit = readData(sql, visitDataMap)
-        return if (visit.size == 0) {
-            null
-        } else visit[0]
+
+
+        val visits = readData(sql, visitDataMap)
+        return visits ?: ArrayList()
     }
 
     private val visitDataMap: DataMap<Visit>
@@ -134,7 +138,32 @@ object TbDao : AbstractDao() {
             visit.visitId = getCursorValue(c, "visit_id")
             visit.parentVisitID = getCursorValue(c, "parent_visit_id")
             visit.visitType = getCursorValue(c, "visit_type")
-            visit.date = getCursorValueAsDate(c, "visit_date")
+            visit.date = Date(BigDecimal(getCursorValue(c, "visit_date")).toLong())
+
             visit
         }
+
+    @JvmStatic
+    fun getTbDetails(baseEntityID: String): List<TbAlertObject?>? {
+        val sql =
+            "select tb_registration_date from ec_tb_register where base_entity_id = '" + baseEntityID + "' " +
+                    "and is_closed is 0"
+        val tbAlertObjects: List<TbAlertObject?>? =
+            readData(sql, getVisitDetailsDataMap())
+        return if (tbAlertObjects!!.isEmpty()) {
+            null
+        } else tbAlertObjects
+    }
+
+    private fun getVisitDetailsDataMap(): DataMap<TbAlertObject>? {
+        return DataMap<TbAlertObject> { c: Cursor? ->
+            val tbAlertObject = TbAlertObject()
+            try {
+                tbAlertObject.tbStartDate = getCursorValue(c, "tb_registration_date")
+            } catch (e: Exception) {
+                Timber.e(e.toString())
+            }
+            tbAlertObject
+        }
+    }
 }

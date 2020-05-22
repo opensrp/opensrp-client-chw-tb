@@ -19,7 +19,7 @@ import org.smartregister.util.Utils
 /**
  * Fragment used for launching a call dialog; implements [BaseTbClientCallDialogContract.View]
  */
-open class BaseTbClientCallDialogFragment : DialogFragment(),
+open class BaseTbCallDialogFragment : DialogFragment(),
     BaseTbClientCallDialogContract.View {
 
     private var listener: View.OnClickListener? = null
@@ -100,7 +100,7 @@ open class BaseTbClientCallDialogFragment : DialogFragment(),
         fun launchDialog(
             activity: Activity, clientName: String?, referralClientPhone: String?,
             familyHeadName: String?, familyHeadPhone: String?
-        ): BaseTbClientCallDialogFragment {
+        ): BaseTbCallDialogFragment {
             val dialogFragment = newInstance()
             val ft = activity.fragmentManager.beginTransaction()
             val prev = activity.fragmentManager.findFragmentByTag(DIALOG_TAG)
@@ -116,6 +116,6 @@ open class BaseTbClientCallDialogFragment : DialogFragment(),
             return dialogFragment
         }
 
-        fun newInstance(): BaseTbClientCallDialogFragment = BaseTbClientCallDialogFragment()
+        fun newInstance(): BaseTbCallDialogFragment = BaseTbCallDialogFragment()
     }
 }

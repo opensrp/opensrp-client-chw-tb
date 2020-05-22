@@ -1,14 +1,19 @@
 package org.smartregister.chw.tb.fragment
 
+import android.app.Activity
 import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import org.smartregister.chw.tb.R
+import org.smartregister.chw.tb.activity.BaseTbFollowUpVisitActivity
 import org.smartregister.chw.tb.contract.BaseTbRegisterFragmentContract
+import org.smartregister.chw.tb.dao.TbDao
+import org.smartregister.chw.tb.domain.TbMemberObject
 import org.smartregister.chw.tb.model.BaseTbRegisterFragmentModel
 import org.smartregister.chw.tb.presenter.BaseTbRegisterFragmentPresenter
 import org.smartregister.chw.tb.provider.TbRegisterProvider
+import org.smartregister.chw.tb.util.TbUtil
 import org.smartregister.commonregistry.CommonPersonObjectClient
 import org.smartregister.configurableviews.model.View
 import org.smartregister.cursoradapter.RecyclerViewPaginatedAdapter
@@ -104,6 +109,8 @@ open class BaseTbRegisterFragment : BaseRegisterFragment(),
         }
         if (view.tag is CommonPersonObjectClient && view.getTag(R.id.VIEW_ID) === CLICK_VIEW_NORMAL) {
             openProfile(view.tag as CommonPersonObjectClient)
+        } else if (view.tag is CommonPersonObjectClient && view.getTag(R.id.VIEW_ID) === FOLLOW_UP_VISIT) {
+            openFollowUpVisit(TbDao.getMember((view.tag as CommonPersonObjectClient).caseId))
         }
     }
 
@@ -116,5 +123,11 @@ open class BaseTbRegisterFragment : BaseRegisterFragment(),
     companion object {
         const val CLICK_VIEW_NORMAL = "click_view_normal"
         const val FOLLOW_UP_VISIT = "follow_up_visit"
+    }
+
+
+    protected open fun openFollowUpVisit(tbMemberObject: TbMemberObject?) {
+        BaseTbFollowUpVisitActivity.startMe(activity as Activity,
+            tbMemberObject?.let { TbUtil.toMember(it) }, false)
     }
 }
