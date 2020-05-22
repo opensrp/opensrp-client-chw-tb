@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="Gradle: org.smartregister:opensrp-client-core:1.8.20-SNAPSHOT@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2509ae2884f33c9a94e3b85f1654254e/jetified-opensrp-client-core-1.8.20-SNAPSHOT/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2509ae2884f33c9a94e3b85f1654254e/jetified-opensrp-client-core-1.8.20-SNAPSHOT/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2509ae2884f33c9a94e3b85f1654254e/jetified-opensrp-client-core-1.8.20-SNAPSHOT/jars/libs/drishti-interface-0.1-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2509ae2884f33c9a94e3b85f1654254e/jetified-opensrp-client-core-1.8.20-SNAPSHOT/jars/libs/butterknife-7.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2509ae2884f33c9a94e3b85f1654254e/jetified-opensrp-client-core-1.8.20-SNAPSHOT/jars/libs/cloudant-sync-datastore-android-1.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2509ae2884f33c9a94e3b85f1654254e/jetified-opensrp-client-core-1.8.20-SNAPSHOT/jars/libs/cloudant-sync-datastore-core-1.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2509ae2884f33c9a94e3b85f1654254e/jetified-opensrp-client-core-1.8.20-SNAPSHOT/jars/libs/opensrp-api-0.1-SNAPSHOT.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2509ae2884f33c9a94e3b85f1654254e/jetified-opensrp-client-core-1.8.20-SNAPSHOT/jars/libs/java-json.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-core/1.8.20-SNAPSHOT/8215b34f3d1e16f2acab3955b74941c06c3348cd/opensrp-client-core-1.8.20-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-core/1.8.20-SNAPSHOT/8215b34f3d1e16f2acab3955b74941c06c3348cd/opensrp-client-core-1.8.20-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

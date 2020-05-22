@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.nerdstone:neat-form-core:1.0.11@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/912250558be53c12ba5f578a06d19411/neat-form-core-1.0.11/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/912250558be53c12ba5f578a06d19411/neat-form-core-1.0.11/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nerdstone/neat-form-core/1.0.11/58b0ca83b8c8fd7c3b569c9198f0513372d3ad90/neat-form-core-1.0.11-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nerdstone/neat-form-core/1.0.11/7ab7e91a026aef85995b0b9edcdc0738c5e6ad6c/neat-form-core-1.0.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

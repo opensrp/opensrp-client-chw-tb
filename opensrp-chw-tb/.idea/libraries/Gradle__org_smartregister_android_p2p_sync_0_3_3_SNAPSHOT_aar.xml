@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.smartregister:android-p2p-sync:0.3.3-SNAPSHOT@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/278294ddf42ab8def7800a432673c8b6/jetified-android-p2p-sync-0.3.3-SNAPSHOT/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/278294ddf42ab8def7800a432673c8b6/jetified-android-p2p-sync-0.3.3-SNAPSHOT/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/android-p2p-sync/0.3.3-SNAPSHOT/25ad26cc2be0df82cfaaefb846db02fc78e1888a/android-p2p-sync-0.3.3-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/android-p2p-sync/0.3.3-SNAPSHOT/25ad26cc2be0df82cfaaefb846db02fc78e1888a/android-p2p-sync-0.3.3-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

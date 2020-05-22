@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.smartregister.chw.tb">
+
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <application>
+        <activity
+            android:name="org.smartregister.chw.tb.activity.BaseTbRegistrationFormsActivity"
+            android:theme="@style/ChwTbTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name="org.smartregister.chw.tb.activity.BaseTbProfileActivity"
+            android:theme="@style/ChwTbTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+    </application>
+</manifest>

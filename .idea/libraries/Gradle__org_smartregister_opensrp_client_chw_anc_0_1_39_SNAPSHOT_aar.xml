@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.smartregister:opensrp-client-chw-anc:0.1.39-SNAPSHOT@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b7e07d7651c0f5cff8d4ced945bb5a2/jetified-opensrp-client-chw-anc-0.1.39-SNAPSHOT/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5b7e07d7651c0f5cff8d4ced945bb5a2/jetified-opensrp-client-chw-anc-0.1.39-SNAPSHOT/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-chw-anc/0.1.39-SNAPSHOT/25555ffee8924b8cfd0a4f1b27cdfca8916c452d/opensrp-client-chw-anc-0.1.39-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.smartregister/opensrp-client-chw-anc/0.1.39-SNAPSHOT/25555ffee8924b8cfd0a4f1b27cdfca8916c452d/opensrp-client-chw-anc-0.1.39-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
