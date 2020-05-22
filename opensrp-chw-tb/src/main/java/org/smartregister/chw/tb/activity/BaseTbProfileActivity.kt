@@ -31,7 +31,7 @@ import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
-class BaseTbProfileActivity : BaseProfileActivity(),
+open class BaseTbProfileActivity : BaseProfileActivity(),
     BaseTbProfileContract.View {
     private var lastVisitRow: View? = null
     private var recordFollowUpVisitLayout: LinearLayout? = null
@@ -49,9 +49,9 @@ class BaseTbProfileActivity : BaseProfileActivity(),
     private var tvFamilyStatus: TextView? = null
     private var tvRecordTbFollowUp: TextView? = null
     private var tvTbRow: TextView? = null
-    private var tbProfilePresenter: BaseTbProfileContract.Presenter? = null
+    var tbProfilePresenter: BaseTbProfileContract.Presenter? = null
     private var tbFloatingMenu: BaseTbFloatingMenu? = null
-    private var tbMemberObject: TbMemberObject? = null
+    var tbMemberObject: TbMemberObject? = null
     private var numOfDays = 0
     private var progressBar: ProgressBar? = null
     private var profileImageView: CircleImageView? = null
@@ -82,7 +82,8 @@ class BaseTbProfileActivity : BaseProfileActivity(),
         if (Build.VERSION.SDK_INT >= 21) {
             appBarLayout.outlineProvider = null
         }
-        tbMemberObject = intent.getSerializableExtra(Constants.ActivityPayload.MEMBER_OBJECT) as TbMemberObject
+        tbMemberObject =
+            intent.getSerializableExtra(Constants.ActivityPayload.MEMBER_OBJECT) as TbMemberObject
         setupViews()
         initializePresenter()
         fetchProfileData()

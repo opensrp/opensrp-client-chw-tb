@@ -8,7 +8,7 @@ import org.smartregister.chw.tb.domain.TbMemberObject
 import org.smartregister.domain.AlertStatus
 import java.util.*
 
-class BaseTbProfileInteractor @VisibleForTesting internal constructor(
+open class BaseTbProfileInteractor @VisibleForTesting internal constructor(
     var appExecutors: AppExecutors
 ) : BaseTbProfileContract.Interactor {
 

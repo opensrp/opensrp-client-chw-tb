@@ -7,7 +7,7 @@ import org.smartregister.domain.AlertStatus
 import org.smartregister.view.contract.BaseProfileContract
 import java.util.*
 
-class BaseTbProfilePresenter(
+open class BaseTbProfilePresenter(
     override val view: BaseTbProfileContract.View?,
     val interactor: BaseTbProfileContract.Interactor,
     var tbMemberObject: TbMemberObject
