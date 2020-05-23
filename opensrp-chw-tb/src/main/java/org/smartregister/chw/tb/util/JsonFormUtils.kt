@@ -36,7 +36,7 @@ object JsonFormUtils : JsonFormUtils() {
             Constants.EventType.REGISTRATION -> {
                 Tables.TB
             }
-            Constants.EventType.REFERRAL_FOLLOW_UP_VISIT -> {
+            Constants.EventType.FOLLOW_UP_VISIT -> {
                 Tables.TB_FOLLOWUP
             }
             else -> null

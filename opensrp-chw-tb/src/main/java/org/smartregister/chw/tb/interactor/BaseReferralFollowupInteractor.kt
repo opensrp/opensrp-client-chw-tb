@@ -19,7 +19,7 @@ import java.util.*
  */
 class BaseReferralFollowupInteractor : BaseTbFollowupContract.Interactor {
 
-    val referralLibrary by inject<TbLibrary>()
+    val tbLibrary by inject<TbLibrary>()
 
     @Throws(Exception::class)
     override fun saveFollowup(
@@ -34,7 +34,7 @@ class BaseReferralFollowupInteractor : BaseTbFollowupContract.Interactor {
     ) {
         val baseEvent =
             JsonFormUtils.processJsonForm(
-                referralLibrary, baseEntityId, valuesHashMap!!, jsonObject,
+                tbLibrary, baseEntityId, valuesHashMap!!, jsonObject,
                 Constants.EventType.REGISTRATION
             )
         baseEvent.eventId = UUID.randomUUID().toString()

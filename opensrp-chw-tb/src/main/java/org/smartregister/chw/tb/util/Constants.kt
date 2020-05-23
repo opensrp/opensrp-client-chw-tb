@@ -39,7 +39,7 @@ object Constants {
 
     object Tables {
         const val TB = "ec_tb_register"
-        const val TB_FOLLOWUP = "ec_tb_follow_up"
+        const val TB_FOLLOWUP = "ec_tb_follow_up_visit"
         const val FAMILY_MEMBER = "ec_family_member"
     }
 
