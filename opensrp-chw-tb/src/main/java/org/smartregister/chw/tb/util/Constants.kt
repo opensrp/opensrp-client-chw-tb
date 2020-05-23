@@ -91,6 +91,7 @@ object DBConstants {
         const val CLIENT_TB_SCREENING_RESULTS = "client_tb_screening_results"
         const val IS_CLOSED = "is_closed"
         const val CHW_FOLLOWUP_DATE = "chw_followup_date"
+        const val TB_FOLLOWUP_VISIT_DATE = "tb_followup_visit_date"
     }
 }
 

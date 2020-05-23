@@ -32,10 +32,12 @@ import org.smartregister.chw.tb.model.AbstractRegisterFormModel
 import org.smartregister.chw.tb.model.BaseRegisterFormModel
 import org.smartregister.chw.tb.presenter.BaseRegisterFormsPresenter
 import org.smartregister.chw.tb.util.Constants
+import org.smartregister.chw.tb.util.DBConstants
 import org.smartregister.chw.tb.util.JsonFormConstants
 import org.smartregister.chw.tb.util.JsonFormUtils.addFormMetadata
 import org.smartregister.chw.tb.util.JsonFormUtils.getFormAsJson
 import org.smartregister.commonregistry.CommonPersonObjectClient
+import org.smartregister.util.JsonFormUtils
 import timber.log.Timber
 import java.util.*
 
@@ -186,6 +188,11 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
                     //Saving TB followup visit Date
                     formData[JsonFormConstants.TB_FOLLOWUP_VISIT_DATE] = NFormViewData().apply {
                         value = Calendar.getInstance().timeInMillis
+                        metadata = hashMapOf(
+                            JsonFormUtils.OPENMRS_ENTITY to "concept",
+                            JsonFormUtils.OPENMRS_ENTITY_ID to DBConstants.Key.TB_FOLLOWUP_VISIT_DATE,
+                            JsonFormUtils.OPENMRS_ENTITY_PARENT to ""
+                        )
                     }
                 }
             }

@@ -120,17 +120,16 @@ object JsonFormUtils : JsonFormUtils() {
                         addHumanReadableValues(
                             ob, humanReadableValues, viewData.value as HashMap<*, *>?
                         )
-                        if (humanReadableValues.isNotEmpty())
-                            ob.humanReadableValues = humanReadableValues
+                        ob.humanReadableValues = humanReadableValues
                     }
                     is NFormViewData -> {
                         val humanReadableValues = ArrayList<Any?>()
                         saveValues(viewData.value as NFormViewData?, ob, humanReadableValues)
-                        if (humanReadableValues.isNotEmpty())
-                            ob.humanReadableValues = humanReadableValues
+                        ob.humanReadableValues = humanReadableValues
                     }
                     else -> {
                         ob.value = viewData.value
+                        ob.humanReadableValues = ArrayList()
                     }
                 }
                 obs.add(ob)
