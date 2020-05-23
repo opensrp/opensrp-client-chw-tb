@@ -6,4 +6,6 @@ package org.smartregister.chw.tb.util
 object JsonFormConstants {
     const val FORM = "form"
     const val TB_REGISTRATION_DATE = "tb_registration_date"
+    const val TB_FOLLOWUP_VISIT_DATE = "tb_followup_visit_date"
+    const val ENCOUNTER_TYPE = "encounter_type"
 }

@@ -26,8 +26,8 @@ object Constants {
     }
 
     object EventType {
-        const val REGISTRATION = "Tb Registration"
-        const val FOLLOW_UP_VISIT = "Followup Visit"
+        const val REGISTRATION = "TB Registration"
+        const val FOLLOW_UP_VISIT = "TB Followup"
         const val REFERRAL_FOLLOW_UP_VISIT = "Followup Visit"
     }
 

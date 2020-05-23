@@ -140,15 +140,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view_tb_visit_date_row"
                 android:background="@drawable/list_item_background_selctor"
-                android:padding="20dp"
+                android:padding="18dp"
                 android:visibility="visible">
 
                 <ImageView
                     android:id="@+id/tb_row_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
                     android:src="@drawable/tb_registration_row" />
 
                 <ImageView
