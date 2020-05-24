@@ -46,4 +46,5 @@
     <dimen name="call_widget_font3">18sp</dimen>
     <dimen name="copy_to_clipboard_header_text_size">20sp</dimen>
     <dimen name="copy_to_clipboard_message_text_size">14sp</dimen>
+    <dimen name="tb_register_list_due_size">14sp</dimen>
 </resources>

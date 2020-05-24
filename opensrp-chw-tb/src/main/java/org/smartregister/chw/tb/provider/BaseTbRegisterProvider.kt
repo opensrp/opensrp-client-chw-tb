@@ -110,11 +110,10 @@ open class BaseTbRegisterProvider(
                     tag = pc
                     setTag(R.id.VIEW_ID, BaseTbRegisterFragment.CLICK_VIEW_NORMAL)
                 }
-                textLastVisit.apply {
+                dueButton.apply {
                     setOnClickListener(onClickListener)
                     tag = pc
-//                    TODO fix this area
-//                    setTag(R.id.VIEW_ID, BaseTbRegisterFragment.FOLLOW_UP_VISIT)
+                    setTag(R.id.VIEW_ID, BaseTbRegisterFragment.FOLLOW_UP_VISIT)
                 }
                 registerColumns.setOnClickListener(onClickListener)
                 registerColumns.setOnClickListener { patientColumn.performClick() }
@@ -128,10 +127,10 @@ open class BaseTbRegisterProvider(
         var patientName: TextView = itemView.findViewById(R.id.patient_name_age)
         var textViewVillage: TextView = itemView.findViewById(R.id.text_view_village)
         var textViewGender: TextView = itemView.findViewById(R.id.text_view_gender)
-        var textLastVisit: TextView = itemView.findViewById(R.id.text_view_last_visit)
         var patientColumn: View = itemView.findViewById(R.id.patient_column)
         var registerColumns: View = itemView.findViewById(R.id.register_columns)
         var dueWrapper: View = itemView.findViewById(R.id.due_button_wrapper)
+        var dueButton: Button = itemView.findViewById(R.id.due_button)
     }
 
     open inner class FooterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
