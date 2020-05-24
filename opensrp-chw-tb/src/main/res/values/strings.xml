@@ -86,4 +86,9 @@
     <string name="save">Save</string>
 
     <string name="tb_follow_up_visit">TB Follow Up Visit</string>
+    <string name="tb_visit_day_due">%s DAYS DUE</string>
+    <string name="tb_visit_day_due_today">DUE TODAY</string>
+    <string name="tb_visit_day_next_due">Next Due %s </string>
+    <string name="tb_visit_day_overdue">%s DAYS OVERDUE</string>
+    <string name="tb_visit_day_overdue_today">OVERDUE TODAY</string>
 </resources>
