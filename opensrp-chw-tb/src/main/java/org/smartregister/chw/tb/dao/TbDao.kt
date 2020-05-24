@@ -41,7 +41,7 @@ object TbDao : AbstractDao() {
     @JvmStatic
     fun getMember(baseEntityID: String): TbMemberObject? {
         val sql =
-            """select m.base_entity_id , m.unique_id , m.relational_id , m.dob , m.first_name , 
+            """select m.base_entity_id , m.unique_id , m.relational_id as family_base_entity_id , m.dob , m.first_name , 
                     m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number , 
                     f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town ,
                     fh.first_name family_head_first_name , fh.middle_name family_head_middle_name , 
@@ -65,9 +65,9 @@ object TbDao : AbstractDao() {
                 memberObject.uniqueId = getCursorValue(cursor, DBConstants.Key.UNIQUE_ID, "")
                 memberObject.age = getCursorValue(cursor, DBConstants.Key.DOB)!!
                 memberObject.familyBaseEntityId =
-                    getCursorValue(cursor, DBConstants.Key.RELATIONAL_ID, "")
+                    getCursorValue(cursor, DBConstants.Key.FAMILY_BASE_ENTITY_ID, "")
                 memberObject.relationalId =
-                    getCursorValue(cursor, DBConstants.Key.RELATIONAL_ID, "")
+                    getCursorValue(cursor, DBConstants.Key.FAMILY_BASE_ENTITY_ID, "")
                 memberObject.primaryCareGiver =
                     getCursorValue(cursor, DBConstants.Key.PRIMARY_CARE_GIVER)
                 memberObject.familyName = getCursorValue(cursor, DBConstants.Key.FAMILY_NAME, "")
@@ -125,7 +125,7 @@ object TbDao : AbstractDao() {
                INNER JOIN ec_tb_register tb on tb.base_entity_id = v.base_entity_id
                WHERE v.base_entity_id = '${baseEntityId}' COLLATE NOCASE
                     AND strftime('%Y%d%m', (datetime(v.visit_date/1000, 'unixepoch')))  >= substr(tb.tb_registration_date,7,4) || substr(tb.tb_registration_date,4,2) || substr(tb.tb_registration_date,1,2)
-               "ORDER BY v.visit_date DESC"""
+               ORDER BY v.visit_date DESC"""
 
 
         val visits = readData(sql, visitDataMap)
