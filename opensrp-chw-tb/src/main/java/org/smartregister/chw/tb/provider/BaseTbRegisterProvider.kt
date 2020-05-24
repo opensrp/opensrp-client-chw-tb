@@ -21,6 +21,7 @@ import org.smartregister.view.contract.SmartRegisterClients
 import org.smartregister.view.dialog.FilterOption
 import org.smartregister.view.dialog.ServiceModeOption
 import org.smartregister.view.dialog.SortOption
+import org.smartregister.view.viewholder.OnClickFormLauncher
 import timber.log.Timber
 import java.text.MessageFormat
 import java.util.*
@@ -72,7 +73,9 @@ open class BaseTbRegisterProvider(
 
     override fun onServiceModeSelected(serviceModeOption: ServiceModeOption) = Unit
 
-    override fun newFormLauncher(formName: String?, entityId: String?, metaData: String?) = null
+    override fun newFormLauncher(formName: String?, entityId: String?, metaData: String?): OnClickFormLauncher {
+        TODO("Not yet implemented")
+    }
 
     override fun inflater() = inflater
 
