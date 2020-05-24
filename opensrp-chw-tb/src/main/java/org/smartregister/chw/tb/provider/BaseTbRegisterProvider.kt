@@ -17,6 +17,7 @@ import org.smartregister.commonregistry.CommonPersonObjectClient
 import org.smartregister.cursoradapter.RecyclerViewProvider
 import org.smartregister.util.Utils
 import org.smartregister.view.contract.SmartRegisterClient
+import org.smartregister.view.contract.SmartRegisterClients
 import org.smartregister.view.dialog.FilterOption
 import org.smartregister.view.dialog.ServiceModeOption
 import org.smartregister.view.dialog.SortOption
@@ -65,7 +66,9 @@ open class BaseTbRegisterProvider(
     override fun updateClients(
         villageFilter: FilterOption?, serviceModeOption: ServiceModeOption?,
         searchFilter: FilterOption?, sortOption: SortOption?
-    ) = null
+    ): SmartRegisterClients {
+        TODO("Not yet implemented")
+    }
 
     override fun onServiceModeSelected(serviceModeOption: ServiceModeOption) = Unit
 
