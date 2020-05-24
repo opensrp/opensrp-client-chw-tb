@@ -12,7 +12,7 @@ import org.smartregister.chw.tb.dao.TbDao
 import org.smartregister.chw.tb.domain.TbMemberObject
 import org.smartregister.chw.tb.model.BaseTbRegisterFragmentModel
 import org.smartregister.chw.tb.presenter.BaseTbRegisterFragmentPresenter
-import org.smartregister.chw.tb.provider.TbRegisterProvider
+import org.smartregister.chw.tb.provider.BaseTbRegisterProvider
 import org.smartregister.chw.tb.util.TbUtil
 import org.smartregister.commonregistry.CommonPersonObjectClient
 import org.smartregister.configurableviews.model.View
@@ -34,10 +34,10 @@ open class BaseTbRegisterFragment : BaseRegisterFragment(),
 
     @Suppress("INACCESSIBLE_TYPE")
     override fun initializeAdapter(visibleColumns: Set<View>?) {
-        val referralRegisterProvider = TbRegisterProvider(
+        val referralRegisterProvider = BaseTbRegisterProvider(
             activity as Context, paginationViewHandler, registerActionHandler, visibleColumns
         )
-        clientAdapter = RecyclerViewPaginatedAdapter<TbRegisterProvider.RegisterViewHolder>(
+        clientAdapter = RecyclerViewPaginatedAdapter<BaseTbRegisterProvider.RegisterViewHolder>(
             null,
             referralRegisterProvider as RecyclerViewProvider<RecyclerView.ViewHolder>,
             context().commonrepository(tablename)
