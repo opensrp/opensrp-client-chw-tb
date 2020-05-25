@@ -48,7 +48,7 @@ class BaseRegisterFormsInteractor : BaseRegisterFormsContract.Interactor {
             }
         }
 
-        callBack.onRegistrationSaved(true)
+        callBack.onRegistrationSaved(true,jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE))
     }
 
 }

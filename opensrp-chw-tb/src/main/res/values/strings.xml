@@ -76,8 +76,6 @@
 
 
     <!--Referral Strings -->
-    <string name="referral_submitted">Referral sent to facility</string>
-    <string name="referral_not_submitted">Referral not submitted; no problems selected for client</string>
     <string name="confirm_form_close">Confirm form close</string>
     <string name="confirm_form_close_explanation">Are you sure you want to go back? All data you have entered in this form will be cleared.</string>
     <string name="yes">Yes</string>
@@ -91,4 +89,7 @@
     <string name="tb_visit_day_next_due">Next Due %s </string>
     <string name="tb_visit_day_overdue">%s DAYS OVERDUE</string>
     <string name="tb_visit_day_overdue_today">OVERDUE TODAY</string>
+    <string name="successful_registration">Client Registered to HIV successfully</string>
+    <string name="successful_visit">Client HIV visit saved successfully</string>
+    <string name="form_not_saved">Form was not saved</string>
 </resources>

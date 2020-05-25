@@ -66,10 +66,13 @@ open class BaseRegisterFormsPresenter(
 
     override fun onNoUniqueId() = Unit
 
-    override fun onRegistrationSaved(saveSuccessful: Boolean) {
+    override fun onRegistrationSaved(saveSuccessful: Boolean,encounterType: String) {
         val context = getView() as Activity
-        val toastMessage = if (saveSuccessful) context.getString(R.string.referral_submitted)
-        else context.getString(R.string.referral_not_submitted)
+        val toastMessage = when {
+            saveSuccessful && encounterType == Constants.EventType.REGISTRATION -> context.getString(R.string.successful_registration)
+            saveSuccessful && encounterType == Constants.EventType.FOLLOW_UP_VISIT -> context.getString(R.string.successful_visit)
+            else -> context.getString(R.string.form_not_saved)
+        }
         Utils.showToast(context, toastMessage)
     }
 }

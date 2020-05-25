@@ -114,6 +114,6 @@ interface BaseRegisterFormsContract {
 
         fun onNoUniqueId()
 
-        fun onRegistrationSaved(saveSuccessful: Boolean)
+        fun onRegistrationSaved(saveSuccessful: Boolean,encounterType: String)
     }
 }
