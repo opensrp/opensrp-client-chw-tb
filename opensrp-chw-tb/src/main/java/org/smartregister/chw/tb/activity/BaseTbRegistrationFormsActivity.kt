@@ -1,13 +1,14 @@
 package org.smartregister.chw.tb.activity
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import com.google.gson.Gson
 import com.nerdstone.neatandroidstepper.core.domain.StepperActions
 import com.nerdstone.neatandroidstepper.core.model.StepperModel
 import com.nerdstone.neatandroidstepper.core.model.StepperModel.IndicatorType
@@ -40,6 +41,7 @@ import org.smartregister.commonregistry.CommonPersonObjectClient
 import org.smartregister.util.JsonFormUtils
 import timber.log.Timber
 import java.util.*
+
 
 /**
  * Created by cozej4 on 2020-05-13.
@@ -198,7 +200,9 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
             }
 
             presenter!!.saveForm(formData, jsonForm!!)
-            Timber.i("Saved data = %s", Gson().toJson(formData))
+
+            val intent = Intent()
+            setResult(Activity.RESULT_OK, intent);
             finish()
         }
     }
