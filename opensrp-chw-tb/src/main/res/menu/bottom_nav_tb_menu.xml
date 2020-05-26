@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_tb_clients"
         android:enabled="true"
-        android:icon="@drawable/ic_icon_open_book"
+        android:icon="@mipmap/ic_home"
         android:title="@string/action_tb_clients"
         app:showAsAction="ifRoom" />
     <item
