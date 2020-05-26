@@ -21,11 +21,15 @@
     <string name="view_medical_history">View medical history</string>
     <string name="view_upcoming_services">View upcoming services</string>
     <string name="family_has_nothing_due">Family has nothing due</string>
+    <string name="client_has_nothing_due">Client has nothing due</string>
     <string name="go_to_family_s_profile">Go to family\'s profile</string>
+    <string name="go_to_client_s_profile">Go to client\'s profile</string>
     <string name="family_has_services_due">Family has services due</string>
+    <string name="client_has_services_due">Client has services due</string>
     <string name="primary_care_giver">Primary care giver</string>
     <string name="family_head">FAMILY HEAD</string>
     <string name="family_has_service_overdue"><![CDATA[Family has <font color=#FF0000>services overdue</font></b>]]></string>
+    <string name="client_has_service_overdue"><![CDATA[Client has <font color=#FF0000>services overdue</font></b>]]></string>
     <string name="vaccine_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>upcoming (%2$s)</font></b>]]></string>
     <string name="vaccine_service_overdue"><![CDATA[%1$s <font color=#f04646>overdue (%2$s)</font></b>]]></string>
     <string name="vaccine_service_due"><![CDATA[%1$s <font color=#000000>due (%2$s)</font></b>]]></string>

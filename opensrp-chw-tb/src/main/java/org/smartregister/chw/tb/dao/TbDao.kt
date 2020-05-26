@@ -42,7 +42,7 @@ object TbDao : AbstractDao() {
     fun getMember(baseEntityID: String): TbMemberObject? {
         val sql =
             """select m.base_entity_id , m.unique_id , m.relational_id as family_base_entity_id , m.dob , m.first_name , 
-                    m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number , 
+                    m.middle_name , m.last_name , m.gender , m.phone_number , m.other_phone_number ,  m.entity_type, m.has_primary_caregiver, m.has_primary_caregiver, m.primary_caregiver_name,
                     f.first_name family_name ,f.primary_caregiver , f.family_head , f.village_town ,
                     fh.first_name family_head_first_name , fh.middle_name family_head_middle_name , 
                     fh.last_name family_head_last_name, fh.phone_number family_head_phone_number, 
@@ -75,8 +75,6 @@ object TbDao : AbstractDao() {
                 memberObject.baseEntityId =
                     getCursorValue(cursor, DBConstants.Key.BASE_ENTITY_ID, "")
                 memberObject.familyHead = getCursorValue(cursor, DBConstants.Key.FAMILY_HEAD, "")
-                memberObject.primaryCareGiverPhoneNumber =
-                    getCursorValue(cursor, DBConstants.Key.PRIMARY_CARE_GIVER_PHONE_NUMBER, "")
                 memberObject.familyHeadPhoneNumber =
                     getCursorValue(cursor, DBConstants.Key.FAMILY_HEAD_PHONE_NUMBER, "")
                 memberObject.tbRegistrationDate =
@@ -101,16 +99,31 @@ object TbDao : AbstractDao() {
                         cursor, "family_head_last_name", ""
                     )).trim { it <= ' ' }
                 memberObject.familyHead = familyHeadName
-                var familyPcgName =
-                    (getCursorValue(cursor, "pcg_first_name", "") + " "
-                            + getCursorValue(cursor, "pcg_middle_name", ""))
-                familyPcgName =
-                    (familyPcgName.trim { it <= ' ' } + " " + getCursorValue(
-                        cursor,
-                        "pcg_last_name",
-                        ""
-                    )).trim { it <= ' ' }
+
+                val entityType = getCursorValue(cursor, "entity_type", "")
+                var familyPcgName = ""
+                if (entityType == "ec_independent_client") {
+                    familyPcgName =
+                        (getCursorValue(cursor, "primary_caregiver_name", ""))
+                    memberObject.primaryCareGiverPhoneNumber =
+                        getCursorValue(cursor, DBConstants.Key.OTHER_PHONE_NUMBER, "")
+                } else {
+                    familyPcgName =
+                        (getCursorValue(cursor, "pcg_first_name", "") + " "
+                                + getCursorValue(cursor, "pcg_middle_name", ""))
+                    familyPcgName =
+                        (familyPcgName.trim { it <= ' ' } + " " + getCursorValue(
+                            cursor,
+                            "pcg_last_name",
+                            ""
+                        )).trim { it <= ' ' }
+                    memberObject.primaryCareGiverPhoneNumber =
+                        getCursorValue(cursor, DBConstants.Key.PRIMARY_CARE_GIVER_PHONE_NUMBER, "")
+                }
+
                 memberObject.primaryCareGiver = familyPcgName
+                memberObject.familyMemberEntityType =
+                    getCursorValue(cursor, DBConstants.Key.FAMILY_MEMBER_ENTITY_TYPE, "")
                 memberObject
             }
         val res = readData(sql, dataMap)

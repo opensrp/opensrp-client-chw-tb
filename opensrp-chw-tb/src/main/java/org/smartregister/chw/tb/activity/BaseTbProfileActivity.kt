@@ -47,6 +47,7 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
     private var tvViewMedicalHistory: TextView? = null
     private var tvUpComingServices: TextView? = null
     private var tvFamilyStatus: TextView? = null
+    private var tvFamilyProfile: TextView? = null
     private var tvRecordTbFollowUp: TextView? = null
     private var tvTbRow: TextView? = null
     var tbProfilePresenter: BaseTbProfileContract.Presenter? = null
@@ -104,6 +105,7 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
         familyRow = findViewById(R.id.view_family_row)
         tvUpComingServices = findViewById(R.id.textview_name_due)
         tvFamilyStatus = findViewById(R.id.textview_family_has)
+        tvFamilyProfile = findViewById(R.id.text_view_family_profile)
         tvTbRow = findViewById(R.id.textview_tb_registration_date_row)
         rlLastVisitLayout = findViewById(R.id.rl_last_visit_layout)
         tvLastVisitDay = findViewById(R.id.textview_last_vist_day)
@@ -236,17 +238,45 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
     override fun setFamilyStatus(status: AlertStatus?) {
         familyRow!!.visibility = View.VISIBLE
         rlFamilyServicesDue!!.visibility = View.VISIBLE
-        when (status) {
-            AlertStatus.complete -> {
-                tvFamilyStatus!!.text = getString(R.string.family_has_nothing_due)
+
+        when {
+            tbMemberObject?.familyMemberEntityType.equals(Constants.FamilyMemberEntityType.EC_INDEPENDENT_CLIENT) -> {
+                when (status) {
+                    AlertStatus.complete -> {
+                        tvFamilyStatus!!.text = getString(R.string.client_has_nothing_due)
+                    }
+                    AlertStatus.normal -> {
+                        tvFamilyStatus!!.text = getString(R.string.client_has_services_due)
+                    }
+                    AlertStatus.urgent -> {
+                        tvFamilyStatus!!.text =
+                            fromHtml(getString(R.string.client_has_service_overdue))
+                    }
+                    else -> {
+                        tvFamilyStatus!!.text = getString(R.string.client_has_nothing_due)
+                    }
+                }
+                tvFamilyProfile!!.text = getString(R.string.go_to_client_s_profile)
             }
-            AlertStatus.normal -> {
-                tvFamilyStatus!!.text = getString(R.string.family_has_services_due)
+            else -> {
+                when (status) {
+                    AlertStatus.complete -> {
+                        tvFamilyStatus!!.text = getString(R.string.family_has_nothing_due)
+                    }
+                    AlertStatus.normal -> {
+                        tvFamilyStatus!!.text = getString(R.string.family_has_services_due)
+                    }
+                    AlertStatus.urgent -> {
+                        tvFamilyStatus!!.text =
+                            fromHtml(getString(R.string.family_has_service_overdue))
+                    }
+                    else -> {
+                        tvFamilyStatus!!.text = getString(R.string.family_has_nothing_due)
+                    }
+                }
+                tvFamilyProfile!!.text = getString(R.string.go_to_family_s_profile)
+
             }
-            AlertStatus.urgent -> {
-                tvFamilyStatus!!.text = fromHtml(getString(R.string.family_has_service_overdue))
-            }
-            else -> tvFamilyStatus!!.text = getString(R.string.family_has_nothing_due)
         }
     }
 

@@ -34,5 +34,6 @@ data class TbMemberObject(val client: CommonPersonObjectClient?) : Serializable 
     var clientTbStatusDuringRegistration: String? = client?.columnmaps?.get(DBConstants.Key.CLIENT_TB_STATUS_DURING_REGISTRATION)
     var clientTbStatusAfterTesting: String? = client?.columnmaps?.get(DBConstants.Key.CLIENT_TB_STATUS_AFTER_TESTING)
     var tbRegistrationDate: Date? = null
+    var familyMemberEntityType: String? = client?.columnmaps?.get(DBConstants.Key.FAMILY_MEMBER_ENTITY_TYPE)
     var isClosed: Boolean? = client?.columnmaps?.get(DBConstants.Key.IS_CLOSED) == "1"
 }
