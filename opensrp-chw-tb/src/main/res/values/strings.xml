@@ -89,7 +89,7 @@
     <string name="tb_visit_day_next_due">Next Due %s </string>
     <string name="tb_visit_day_overdue">%s DAYS OVERDUE</string>
     <string name="tb_visit_day_overdue_today">OVERDUE TODAY</string>
-    <string name="successful_registration">Client Registered to HIV successfully</string>
-    <string name="successful_visit">Client HIV visit saved successfully</string>
+    <string name="successful_registration">Client Registered to TB successfully</string>
+    <string name="successful_visit">Client TB visit saved successfully</string>
     <string name="form_not_saved">Form was not saved</string>
 </resources>
