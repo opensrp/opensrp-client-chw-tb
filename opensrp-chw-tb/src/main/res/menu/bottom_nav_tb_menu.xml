@@ -5,7 +5,7 @@
         android:id="@+id/action_tb_clients"
         android:enabled="true"
         android:icon="@mipmap/ic_home"
-        android:title="@string/action_tb_clients"
+        android:title="@string/home"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_received_referrals"
