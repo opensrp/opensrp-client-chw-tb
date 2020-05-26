@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:text="@string/call_referral_client"
+            android:text="@string/call_tb_client"
             android:textColor="@color/black"
             android:textSize="@dimen/call_widget_font1"
             android:textStyle="normal" />
@@ -58,9 +58,9 @@
                 android:id="@+id/call_head_title"
                 style="@style/CustomFontTextViewStyle.ClientList.Light"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="13dp"
                 android:layout_marginBottom="5dp"
-                android:text="@string/head_of_family"
+                android:text="@string/primary_care_giver"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/call_widget_font3"
                 android:textStyle="normal" />
