@@ -15,7 +15,7 @@ object Constants {
         const val TB_REGISTER = "tb_register"
     }
 
-    object ReferralMemberObject {
+    object TbMemberObject {
         const val MEMBER_OBJECT = "memberObject"
         const val COMMON_PERSON_OBJECT = "commonPersonObjectClient"
     }

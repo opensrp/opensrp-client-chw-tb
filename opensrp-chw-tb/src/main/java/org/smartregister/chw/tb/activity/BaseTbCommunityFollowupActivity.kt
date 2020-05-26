@@ -63,7 +63,7 @@ open class BaseTbCommunityFollowupActivity : AppCompatActivity(), BaseTbFollowup
 
         with(this.intent) {
             tbMemberObject =
-                getSerializableExtra(Constants.ReferralMemberObject.MEMBER_OBJECT) as TbMemberObject
+                getSerializableExtra(Constants.TbMemberObject.MEMBER_OBJECT) as TbMemberObject
             formName = getStringExtra(Constants.ActivityPayload.TB_FOLLOWUP_FORM_NAME)
             try {
                 jsonForm =
@@ -72,7 +72,7 @@ open class BaseTbCommunityFollowupActivity : AppCompatActivity(), BaseTbFollowup
                 Timber.e(e)
             }
             tbMemberObject =
-                getSerializableExtra(Constants.ReferralMemberObject.MEMBER_OBJECT) as TbMemberObject
+                getSerializableExtra(Constants.TbMemberObject.MEMBER_OBJECT) as TbMemberObject
         }
 
         //initializing the presenter and the viewModel
