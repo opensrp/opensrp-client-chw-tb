@@ -50,7 +50,7 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
     private var tvRecordTbFollowUp: TextView? = null
     private var tvTbRow: TextView? = null
     var tbProfilePresenter: BaseTbProfileContract.Presenter? = null
-    private var tbFloatingMenu: BaseTbFloatingMenu? = null
+    var tbFloatingMenu: BaseTbFloatingMenu? = null
     var tbMemberObject: TbMemberObject? = null
     private var numOfDays = 0
     private var progressBar: ProgressBar? = null
@@ -132,7 +132,7 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
             BaseTbProfilePresenter(this, BaseTbProfileInteractor(), tbMemberObject!!)
     }
 
-    fun initializeCallFAB() {
+    open fun initializeCallFAB() {
         if (StringUtils.isNotBlank(tbMemberObject!!.phoneNumber)
             || StringUtils.isNotBlank(tbMemberObject!!.familyHeadPhoneNumber)
         ) {

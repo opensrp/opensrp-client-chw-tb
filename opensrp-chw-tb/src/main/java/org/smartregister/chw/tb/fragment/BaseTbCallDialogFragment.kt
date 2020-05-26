@@ -20,13 +20,13 @@ open class BaseTbCallDialogFragment : DialogFragment(),
 
     private var listener: View.OnClickListener? = null
 
-    override fun onCreate(savedInstanceState: Bundle) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NO_TITLE, R.style.FullScreenDialog)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         val dialogView = inflater.inflate(
             R.layout.tb_member_call_widget_dialog_fragment, container, false
