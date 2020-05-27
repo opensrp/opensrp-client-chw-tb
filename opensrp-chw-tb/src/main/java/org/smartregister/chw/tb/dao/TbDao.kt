@@ -18,6 +18,7 @@ object TbDao : AbstractDao() {
             """select count(ec_tb_register.base_entity_id) count
                from ec_tb_register
                where base_entity_id = '${baseEntityID}'
+               and tb_case_closure_date IS NULL and
                and ec_tb_register.is_closed = 0
             """
 

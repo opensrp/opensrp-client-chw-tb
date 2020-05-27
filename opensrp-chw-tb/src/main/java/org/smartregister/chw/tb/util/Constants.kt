@@ -28,6 +28,7 @@ object Constants {
     object EventType {
         const val REGISTRATION = "TB Registration"
         const val FOLLOW_UP_VISIT = "TB Followup"
+        const val TB_CASE_CLOSURE = "TB Case Closure"
         const val REFERRAL_FOLLOW_UP_VISIT = "Followup Visit"
     }
 
@@ -97,6 +98,7 @@ object DBConstants {
         const val FAMILY_MEMBER_ENTITY_TYPE = "entity_type"
         const val CHW_FOLLOWUP_DATE = "chw_followup_date"
         const val TB_FOLLOWUP_VISIT_DATE = "tb_followup_visit_date"
+        const val TB_CASE_CLOSURE_DATE = "tb_case_closure_date"
     }
 }
 

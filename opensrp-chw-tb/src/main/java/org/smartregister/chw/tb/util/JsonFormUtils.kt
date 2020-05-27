@@ -36,6 +36,9 @@ object JsonFormUtils : JsonFormUtils() {
             Constants.EventType.REGISTRATION -> {
                 Tables.TB
             }
+            Constants.EventType.TB_CASE_CLOSURE -> {
+                Tables.TB
+            }
             Constants.EventType.FOLLOW_UP_VISIT -> {
                 Tables.TB_FOLLOWUP
             }
