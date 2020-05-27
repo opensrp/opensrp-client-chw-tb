@@ -22,7 +22,7 @@ open class BaseRegisterFormModel : AbstractRegisterFormModel() {
 
     override fun mainSelect(tableName: String, mainCondition: String): String {
         val queryBuilder = SmartRegisterQueryBuilder()
-        queryBuilder.SelectInitiateMainTable(tableName, mainColumns(tableName))
+        queryBuilder.selectInitiateMainTable(tableName, mainColumns(tableName))
         return queryBuilder.mainCondition(mainCondition)
     }
 

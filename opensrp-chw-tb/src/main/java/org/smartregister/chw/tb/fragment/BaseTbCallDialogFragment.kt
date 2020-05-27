@@ -46,7 +46,7 @@ open class BaseTbCallDialogFragment : DialogFragment(),
 
             rootView.findViewById<TextView>(R.id.call_tb_client_phone)?.apply {
                 tag = tbClientPhoneNumber
-                text = Utils.getName(getString(R.string.call), tbClientPhoneNumber)
+                text = tbClientPhoneNumber?.let { Utils.getName(getString(R.string.call), it) }
                 setOnClickListener(listener)
             }
 
@@ -61,7 +61,7 @@ open class BaseTbCallDialogFragment : DialogFragment(),
             rootView.findViewById<TextView>(R.id.tb_call_head_phone)
                 ?.apply {
                     tag = tbFamilyHeadPhone
-                    text = Utils.getName(getString(R.string.call), tbFamilyHeadPhone)
+                    text = tbFamilyHeadPhone?.let { Utils.getName(getString(R.string.call), it) }
                     setOnClickListener(listener)
                 }
         } else {

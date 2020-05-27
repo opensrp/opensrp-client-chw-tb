@@ -84,7 +84,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api('org.smartregister:opensrp-client-core:1.8.20-SNAPSHOT@aar') {
+    api('org.smartregister:opensrp-client-core:1.11.3-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'com.github.bmelnychuk', module: 'atv'
         exclude group: 'com.google.guava', module: 'guava'
