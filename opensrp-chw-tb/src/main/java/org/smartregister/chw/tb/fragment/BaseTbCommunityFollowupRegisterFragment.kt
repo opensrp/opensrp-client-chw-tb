@@ -9,7 +9,7 @@ import org.smartregister.chw.tb.R
 import org.smartregister.chw.tb.contract.BaseTbRegisterFragmentContract
 import org.smartregister.chw.tb.model.BaseTbRegisterFragmentModel
 import org.smartregister.chw.tb.presenter.BaseTbRegisterFragmentPresenter
-import org.smartregister.chw.tb.provider.FollowupRegisterProvider
+import org.smartregister.chw.tb.provider.BaseTbCommunityFollowupRegisterProvider
 import org.smartregister.commonregistry.CommonPersonObjectClient
 import org.smartregister.configurableviews.model.View
 import org.smartregister.cursoradapter.RecyclerViewPaginatedAdapter
@@ -25,15 +25,15 @@ const val FOLLOW_UP_VISIT = "follow_up_visit"
 /**
  * Fragment used for referral Followup, extends OpenSRP's [BaseRegisterFragment] and implements [BaseTbRegisterFragmentContract.View]
  */
-open class BaseFollowupRegisterFragment : BaseRegisterFragment(),
+open class BaseTbCommunityFollowupRegisterFragment : BaseRegisterFragment(),
     BaseTbRegisterFragmentContract.View {
 
     @Suppress("INACCESSIBLE_TYPE")
     override fun initializeAdapter(visibleColumns: Set<View>?) {
-        val followupRegisterProvider = FollowupRegisterProvider(
+        val followupRegisterProvider = BaseTbCommunityFollowupRegisterProvider(
             (activity as Context), paginationViewHandler, registerActionHandler, visibleColumns!!
         )
-        clientAdapter = RecyclerViewPaginatedAdapter<FollowupRegisterProvider.RegisterViewHolder>(
+        clientAdapter = RecyclerViewPaginatedAdapter<BaseTbCommunityFollowupRegisterProvider.RegisterViewHolder>(
             null as Cursor?,
             followupRegisterProvider as RecyclerViewProvider<RecyclerView.ViewHolder>,
             context().commonrepository(tablename)

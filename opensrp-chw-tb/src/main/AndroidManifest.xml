@@ -12,9 +12,5 @@
             android:name="org.smartregister.chw.tb.activity.BaseTbProfileActivity"
             android:theme="@style/ChwTbTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="org.smartregister.chw.tb.activity.BaseTbFollowUpVisitActivity"
-            android:theme="@style/ChwTbTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
     </application>
 </manifest>

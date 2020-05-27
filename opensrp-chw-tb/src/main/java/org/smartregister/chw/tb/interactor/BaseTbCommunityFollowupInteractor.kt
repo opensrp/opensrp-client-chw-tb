@@ -17,7 +17,7 @@ import java.util.*
  * This interactor class provides actual implementations for all the functionality used in the
  * follow up referral forms, it implements [BaseTbFollowupContract.Interactor]
  */
-class BaseReferralFollowupInteractor : BaseTbFollowupContract.Interactor {
+class BaseTbCommunityFollowupInteractor : BaseTbFollowupContract.Interactor {
 
     val tbLibrary by inject<TbLibrary>()
 

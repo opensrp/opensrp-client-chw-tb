@@ -13,7 +13,7 @@ import timber.log.Timber
 import java.lang.ref.WeakReference
 import java.util.*
 
-open class BaseReferralFollowupPresenter(
+open class BaseTbCommunityFollowupPresenter(
     view: BaseTbFollowupContract.View,
     private val viewModelClass: Class<out BaseReferralFollowupModel?>,
     protected var interactor: BaseTbFollowupContract.Interactor

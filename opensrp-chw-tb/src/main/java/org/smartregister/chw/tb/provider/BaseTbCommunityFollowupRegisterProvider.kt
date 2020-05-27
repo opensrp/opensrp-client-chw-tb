@@ -26,11 +26,11 @@ import org.smartregister.view.viewholder.OnClickFormLauncher
 import java.text.MessageFormat
 import org.smartregister.configurableviews.model.View as ConfigurableView
 
-open class FollowupRegisterProvider(
+open class BaseTbCommunityFollowupRegisterProvider(
     private val context: Context, private val paginationClickListener: View.OnClickListener,
     protected var onClickListener: View.OnClickListener,
     private val visibleColumns: Set<ConfigurableView>
-) : RecyclerViewProvider<FollowupRegisterProvider.RegisterViewHolder> {
+) : RecyclerViewProvider<BaseTbCommunityFollowupRegisterProvider.RegisterViewHolder> {
 
     private val inflater: LayoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

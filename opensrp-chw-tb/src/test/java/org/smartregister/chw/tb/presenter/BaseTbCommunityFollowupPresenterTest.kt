@@ -14,14 +14,14 @@ import org.smartregister.chw.tb.model.BaseRegisterFormModel
 import org.smartregister.chw.tb.util.Constants
 import org.smartregister.commonregistry.CommonPersonObjectClient
 
-class BaseReferralFollowupPresenterTest {
+class BaseTbCommunityFollowupPresenterTest {
 
     private val tbFollowupReferralView: BaseTbFollowupContract.View = spyk()
     private val tbFollowupReferralInteractor: BaseTbFollowupContract.Interactor = spyk()
     private val sampleBaseEntityId = "5a5mple-b35eent"
     private val tbFollowupReferralPresenter: BaseTbFollowupContract.Presenter =
         spyk(
-            BaseReferralFollowupPresenter(
+            BaseTbCommunityFollowupPresenter(
                 tbFollowupReferralView,
                 BaseReferralFollowupModel::class.java,
                 tbFollowupReferralInteractor
@@ -58,7 +58,7 @@ class BaseReferralFollowupPresenterTest {
         verifyAll {
             tbFollowupReferralInteractor.saveFollowup(
                 sampleBaseEntityId, valuesHashMap, jsonFormObject,
-                tbFollowupReferralPresenter as BaseReferralFollowupPresenter
+                tbFollowupReferralPresenter as BaseTbCommunityFollowupPresenter
             )
         }
     }
@@ -77,6 +77,6 @@ class BaseReferralFollowupPresenterTest {
     @Test
     fun initializeMemberObject() {
         tbFollowupReferralPresenter.initializeMemberObject(tbMemberObject)
-        Assert.assertNotNull((tbFollowupReferralPresenter as BaseReferralFollowupPresenter).tbMemberObject)
+        Assert.assertNotNull((tbFollowupReferralPresenter as BaseTbCommunityFollowupPresenter).tbMemberObject)
     }
 }

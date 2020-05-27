@@ -15,6 +15,7 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.gson.Gson
 import com.nerdstone.neatformcore.domain.builders.FormBuilder
 import com.nerdstone.neatformcore.form.json.JsonFormBuilder
+import com.nerdstone.neatformcore.form.json.JsonFormEmbedded
 import org.joda.time.DateTime
 import org.joda.time.Period
 import org.json.JSONException
@@ -24,9 +25,9 @@ import org.smartregister.chw.tb.R
 import org.smartregister.chw.tb.contract.BaseTbFollowupContract
 import org.smartregister.chw.tb.databinding.ActivityFollowupBinding
 import org.smartregister.chw.tb.domain.TbMemberObject
-import org.smartregister.chw.tb.interactor.BaseReferralFollowupInteractor
+import org.smartregister.chw.tb.interactor.BaseTbCommunityFollowupInteractor
 import org.smartregister.chw.tb.model.BaseReferralFollowupModel
-import org.smartregister.chw.tb.presenter.BaseReferralFollowupPresenter
+import org.smartregister.chw.tb.presenter.BaseTbCommunityFollowupPresenter
 import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.JsonFormUtils.addFormMetadata
 import org.smartregister.chw.tb.util.JsonFormUtils.getFormAsJson
@@ -106,9 +107,11 @@ open class BaseTbCommunityFollowupActivity : AppCompatActivity(), BaseTbFollowup
         }
 
         jsonForm?.also {
-//            formBuilder = JsonFormBuilder(
-//                it.toString(), this, findViewById<LinearLayout>(R.id.formLayout)
-//            ).buildForm(null, null)
+            formBuilder = JsonFormBuilder(jsonForm.toString(), this)
+            JsonFormEmbedded(
+                formBuilder as JsonFormBuilder,
+                findViewById<LinearLayout>(R.id.formLayout)
+            ).buildForm(null)
         }
     }
 
@@ -137,8 +140,8 @@ open class BaseTbCommunityFollowupActivity : AppCompatActivity(), BaseTbFollowup
     }
 
     override fun presenter(): BaseTbFollowupContract.Presenter {
-        return BaseReferralFollowupPresenter(
-            this, BaseReferralFollowupModel::class.java, BaseReferralFollowupInteractor()
+        return BaseTbCommunityFollowupPresenter(
+            this, BaseReferralFollowupModel::class.java, BaseTbCommunityFollowupInteractor()
         )
     }
 
