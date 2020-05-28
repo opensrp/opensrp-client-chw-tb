@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="Patient Name, Age"
             android:textColor="@color/text_black"
             android:textSize="@dimen/register_list_title_size" />
 
@@ -81,7 +80,7 @@
         android:paddingEnd="@dimen/register_list_item_padding"
         android:paddingRight="@dimen/register_list_item_padding"
         android:paddingBottom="@dimen/register_list_top_bottom_padding"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <Button
             android:id="@+id/due_button"

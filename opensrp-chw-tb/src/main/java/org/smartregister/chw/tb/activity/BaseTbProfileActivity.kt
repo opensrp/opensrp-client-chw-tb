@@ -177,7 +177,7 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
     override fun setupFollowupVisitEditViews(isWithin24Hours: Boolean) {
         if (isWithin24Hours) {
             recordFollowUpVisitLayout!!.visibility = View.GONE
-            recordVisitStatusBarLayout!!.visibility = View.VISIBLE;
+            recordVisitStatusBarLayout!!.visibility = View.GONE
             tvEditVisit!!.visibility = View.VISIBLE;
         } else {
             tvEditVisit!!.visibility = View.GONE

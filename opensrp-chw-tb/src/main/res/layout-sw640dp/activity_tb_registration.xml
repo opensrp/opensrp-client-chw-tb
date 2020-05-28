@@ -93,6 +93,7 @@
                                         android:contentDescription="@string/go_back"
                                         android:padding="@dimen/toolbar_buttons_padding"
                                         android:src="@drawable/ic_clear"
+                                        android:tint="#fff"
                                         android:background="@android:color/transparent"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintStart_toStartOf="parent"
