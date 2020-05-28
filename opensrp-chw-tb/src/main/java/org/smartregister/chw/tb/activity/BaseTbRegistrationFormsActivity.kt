@@ -6,24 +6,23 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
+import com.google.gson.Gson
 import com.nerdstone.neatandroidstepper.core.domain.StepperActions
-import com.nerdstone.neatandroidstepper.core.model.StepperModel
-import com.nerdstone.neatandroidstepper.core.model.StepperModel.IndicatorType
-import com.nerdstone.neatandroidstepper.core.stepper.Step
-import com.nerdstone.neatandroidstepper.core.stepper.StepVerificationState
 import com.nerdstone.neatformcore.domain.builders.FormBuilder
-import com.nerdstone.neatformcore.domain.model.JsonFormStepBuilderModel
-import com.nerdstone.neatformcore.domain.model.NFormViewData
 import com.nerdstone.neatformcore.form.json.JsonFormBuilder
+import com.nerdstone.neatformcore.form.json.JsonFormEmbedded
 import org.joda.time.DateTime
 import org.joda.time.Period
 import org.json.JSONException
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
-import org.smartregister.AllConstants
 import org.smartregister.chw.tb.R
 import org.smartregister.chw.tb.TbLibrary
 import org.smartregister.chw.tb.contract.BaseRegisterFormsContract
@@ -33,12 +32,7 @@ import org.smartregister.chw.tb.model.AbstractRegisterFormModel
 import org.smartregister.chw.tb.model.BaseRegisterFormModel
 import org.smartregister.chw.tb.presenter.BaseRegisterFormsPresenter
 import org.smartregister.chw.tb.util.Constants
-import org.smartregister.chw.tb.util.DBConstants
-import org.smartregister.chw.tb.util.JsonFormConstants
-import org.smartregister.chw.tb.util.JsonFormUtils.addFormMetadata
-import org.smartregister.chw.tb.util.JsonFormUtils.getFormAsJson
 import org.smartregister.commonregistry.CommonPersonObjectClient
-import org.smartregister.util.JsonFormUtils
 import timber.log.Timber
 import java.util.*
 
@@ -53,9 +47,7 @@ import java.util.*
  * and [StepperActions] (which is from the neat form library) that provides callback methods from the
  * form builder. It exposes a method to receiving the data from the views and exiting the activity
  */
-open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFormsContract.View,
-    StepperActions {
-
+open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFormsContract.View {
     protected var presenter: BaseRegisterFormsContract.Presenter? = null
     protected var baseEntityId: String? = null
     protected var formName: String? = null
@@ -63,14 +55,23 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
     private var formBuilder: FormBuilder? = null
     private var jsonForm: JSONObject? = null
     private var useDefaultNeatFormLayout: Boolean? = null
+    private lateinit var formLayout: LinearLayout
+    private lateinit var mainLayout: LinearLayout
+    private lateinit var sampleToolBar: Toolbar
+    private lateinit var pageTitleTextView: TextView
+    private lateinit var exitFormImageView: ImageView
+    private lateinit var completeButton: ImageView
     val tbLibrary by inject<TbLibrary>()
-
-    protected val locationID: String
-        get() = org.smartregister.Context.getInstance().allSharedPreferences()
-            .getPreference(AllConstants.CURRENT_LOCATION_ID)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_tb_registration)
+        mainLayout = findViewById(R.id.mainLayout)
+        formLayout = findViewById(R.id.formLayout)
+        sampleToolBar = findViewById(R.id.sampleToolBar)
+        pageTitleTextView = findViewById(R.id.pageTitleTextView)
+        exitFormImageView = findViewById(R.id.exitFormImageView)
+        completeButton = findViewById(R.id.completeButton)
 
         with(this.intent) {
             baseEntityId = getStringExtra(Constants.ActivityPayload.BASE_ENTITY_ID)
@@ -83,55 +84,84 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
             } catch (e: JSONException) {
                 Timber.e(e)
             }
+            presenter = presenter()
+            viewModel =
+                ViewModelProviders.of(this@BaseTbRegistrationFormsActivity)
+                    .get(presenter!!.getViewModel<AbstractRegisterFormModel>())
+            updateMemberObject()
+            with(presenter) {
+                this?.initializeMemberObject(viewModel?.tbMemberObject!!)
+                this?.fillClientData(viewModel?.tbMemberObject!!)
+            }
+
+            with(viewModel?.tbMemberObject!!) {
+                val age = Period(DateTime(this.age), DateTime()).years
+                pageTitleTextView.text =
+                    "${this.firstName} ${this.middleName} ${this.lastName}, $age"
+            }
+
+            exitFormImageView.setOnClickListener {
+                if (it.id == R.id.exitFormImageView) {
+                    AlertDialog.Builder(
+                        this@BaseTbRegistrationFormsActivity,
+                        R.style.AlertDialogTheme
+                    )
+                        .setTitle(getString(R.string.confirm_form_close))
+                        .setMessage(getString(R.string.confirm_form_close_explanation))
+                        .setNegativeButton(R.string.yes) { _: DialogInterface?, _: Int -> finish() }
+                        .setPositiveButton(R.string.no) { _: DialogInterface?, _: Int ->
+                            Timber.d("Do Nothing exit confirm dialog")
+                        }
+                        .create()
+                        .show()
+                }
+            }
+
+            completeButton.setOnClickListener {
+                if (it.id == R.id.completeButton) {
+                    if (formBuilder?.getFormDataAsJson() != "") {
+
+                        val formData = formBuilder!!.getFormData()
+                        if (formData.isNotEmpty()) {
+                            Timber.e("Coze:: saved data = " + Gson().toJson(formData))
+                            presenter!!.saveForm(formData, jsonForm!!)
+
+                            Toast.makeText(
+                                applicationContext,
+                                getString(R.string.successful_registration),
+                                Toast.LENGTH_LONG
+                            ).show()
+                            Timber.d("Saved Data = %s", formBuilder?.getFormDataAsJson())
+                            val intent = Intent()
+                            setResult(Activity.RESULT_OK, intent);
+                            finish()
+                        }
+
+
+
+                        finish()
+                    }
+                }
+            }
+
+            createViewsFromJson()
         }
 
-        presenter = presenter()
-        viewModel =
-            ViewModelProviders.of(this).get(presenter!!.getViewModel<AbstractRegisterFormModel>())
-        setContentView(R.layout.activity_tb_registration)
-        updateMemberObject()
 
-        with(presenter) {
-            this?.initializeMemberObject(viewModel?.tbMemberObject!!)
-            this?.fillClientData(viewModel?.tbMemberObject!!)
-        }
-
-        createViewsFromJson()
     }
 
     private fun createViewsFromJson() {
-        val formJsonObject: JSONObject? = jsonForm ?: getFormAsJson(formName, this)
         try {
-            formJsonObject?.also {
-                addFormMetadata(it, baseEntityId, locationID)
-                with(viewModel?.tbMemberObject!!) {
-                    val age = Period(DateTime(this.age), DateTime()).years
-                    it.put(
-                        JsonFormConstants.FORM,
-                        "${this.firstName} ${this.middleName} ${this.lastName}, $age"
-
-                    )
-                }
-
-                val formLayout = findViewById<LinearLayout>(R.id.formLayout)
-                val stepperModel = StepperModel.Builder()
-                    .exitButtonDrawableResource(R.drawable.ic_arrow_back_white_24dp)
-                    .indicatorType(IndicatorType.DOT_INDICATOR)
-                    .toolbarColorResource(R.color.family_actionbar)
-                    .build()
-
-
-                val customLayouts = ArrayList<View>().also { list ->
-                    list.add(layoutInflater.inflate(R.layout.tb_registration_form_view, null))
-                }
-
-                formBuilder = JsonFormBuilder(it.toString(), this, formLayout)
-                    .buildForm(
-                        JsonFormStepBuilderModel.Builder(this, stepperModel).build(),
-                        if (useDefaultNeatFormLayout!!) customLayouts else null
-                    )
-                formLayout.addView(formBuilder!!.neatStepperLayout)
+            val customLayouts = ArrayList<View>().also { list ->
+                list.add(layoutInflater.inflate(R.layout.tb_registration_form_view, null))
             }
+
+            formBuilder = JsonFormBuilder(jsonForm.toString(), this)
+            JsonFormEmbedded(
+                formBuilder as JsonFormBuilder,
+                formLayout
+            ).buildForm(if (useDefaultNeatFormLayout!!) customLayouts else null)
+
 
         } catch (ex: JSONException) {
             Timber.e(ex)
@@ -169,57 +199,5 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
         }
     }
 
-    override fun onButtonNextClick(step: Step) = Unit
 
-    override fun onButtonPreviousClick(step: Step) = Unit
-
-    override fun onCompleteStepper() {
-        val formData = formBuilder!!.getFormData()
-        if (formData.isNotEmpty()) {
-            val formJsonObject: JSONObject? = jsonForm ?: getFormAsJson(formName, this)
-            when {
-                formJsonObject?.getString(JsonFormConstants.ENCOUNTER_TYPE)
-                    .equals(Constants.EventType.REGISTRATION) -> {
-                    //Saving TB registration Date
-                    formData[JsonFormConstants.TB_REGISTRATION_DATE] = NFormViewData().apply {
-                        value = Calendar.getInstance().timeInMillis
-                    }
-                }
-                formJsonObject?.getString(JsonFormConstants.ENCOUNTER_TYPE)
-                    .equals(Constants.EventType.FOLLOW_UP_VISIT) -> {
-                    //Saving TB followup visit Date
-                    formData[JsonFormConstants.TB_FOLLOWUP_VISIT_DATE] = NFormViewData().apply {
-                        value = Calendar.getInstance().timeInMillis
-                        metadata = hashMapOf(
-                            JsonFormUtils.OPENMRS_ENTITY to "concept",
-                            JsonFormUtils.OPENMRS_ENTITY_ID to DBConstants.Key.TB_FOLLOWUP_VISIT_DATE,
-                            JsonFormUtils.OPENMRS_ENTITY_PARENT to ""
-                        )
-                    }
-                }
-            }
-
-            presenter!!.saveForm(formData, jsonForm!!)
-
-            val intent = Intent()
-            setResult(Activity.RESULT_OK, intent);
-            finish()
-        }
-    }
-
-    override fun onExitStepper() {
-        AlertDialog.Builder(this, R.style.AlertDialogTheme)
-            .setTitle(getString(R.string.confirm_form_close))
-            .setMessage(getString(R.string.confirm_form_close_explanation))
-            .setNegativeButton(R.string.yes) { _: DialogInterface?, _: Int -> finish() }
-            .setPositiveButton(R.string.no) { _: DialogInterface?, _: Int ->
-                Timber.d("Do Nothing exit confirm dialog")
-            }
-            .create()
-            .show()
-    }
-
-    override fun onStepComplete(step: Step) = Unit
-
-    override fun onStepError(stepVerificationState: StepVerificationState) = Unit
 }

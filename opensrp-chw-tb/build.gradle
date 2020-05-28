@@ -84,7 +84,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api('org.smartregister:opensrp-client-core:1.8.20-SNAPSHOT@aar') {
+    api('org.smartregister:opensrp-client-core:1.11.3-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'com.github.bmelnychuk', module: 'atv'
         exclude group: 'com.google.guava', module: 'guava'
@@ -101,7 +101,7 @@ dependencies {
         exclude group: 'org.smartregister', module: 'opensrp-client-native-form'
     }
 
-    api("com.nerdstone:neat-form-core:1.0.11") {
+    api("com.nerdstone:neat-form-core:1.1.0-Testing") {
         transitive = true
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'androidx.appcompat', module: 'appcompat'
