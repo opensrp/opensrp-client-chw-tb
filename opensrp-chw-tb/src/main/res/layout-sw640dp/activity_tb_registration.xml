@@ -99,18 +99,29 @@
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />
 
-                                    <TextView
-                                        android:id="@+id/pageTitleTextView"
+                                    <LinearLayout
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="16dp"
-                                        android:textColor="@color/colorWhite"
-                                        android:src="@drawable/ic_info_check"
-                                        android:textSize="20sp"
+                                        android:orientation="vertical"
                                         app:layout_constraintStart_toEndOf="@+id/exitFormImageView"
                                         app:layout_constraintEnd_toStartOf="@+id/completeButton"
                                         app:layout_constraintTop_toTopOf="parent"
-                                        app:layout_constraintBottom_toBottomOf="parent" />
+                                        app:layout_constraintBottom_toBottomOf="parent">
+                                        <TextView
+                                            android:id="@+id/pageTitleTextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:textColor="@color/colorWhite"
+                                            android:textSize="16sp" />
+                                        <TextView
+                                            android:id="@+id/clientNameTitleTextView"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="16dp"
+                                            android:textColor="@color/colorWhite"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
 
                                     <ImageButton
                                         android:id="@+id/completeButton"
