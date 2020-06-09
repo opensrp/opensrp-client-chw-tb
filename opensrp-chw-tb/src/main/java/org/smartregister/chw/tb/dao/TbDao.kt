@@ -205,4 +205,22 @@ object TbDao : AbstractDao() {
             tbAlertObject
         }
     }
+
+    @JvmStatic
+    fun getSyncLocationId(baseEntityId: String?): String? {
+        val sql = String.format(
+            "SELECT sync_location_id FROM ec_family_member WHERE base_entity_id = '%s'",
+            baseEntityId
+        )
+        val dataMap =
+            DataMap { cursor: Cursor? ->
+                getCursorValue(
+                    cursor,
+                    "sync_location_id"
+                )
+            }
+        val res =
+            readData(sql, dataMap)
+        return if (res == null || res.size != 1) null else res[0]
+    }
 }

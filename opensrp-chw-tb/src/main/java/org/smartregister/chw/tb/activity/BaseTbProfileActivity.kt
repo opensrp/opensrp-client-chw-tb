@@ -236,6 +236,7 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
     }
 
     override fun setFamilyStatus(status: AlertStatus?) {
+        findViewById<View>(R.id.rlTbRegistrationDate).visibility = View.VISIBLE
         familyRow!!.visibility = View.VISIBLE
         rlFamilyServicesDue!!.visibility = View.VISIBLE
 

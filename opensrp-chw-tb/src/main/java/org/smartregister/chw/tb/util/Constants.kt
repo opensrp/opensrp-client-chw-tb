@@ -27,6 +27,7 @@ object Constants {
 
     object EventType {
         const val REGISTRATION = "TB Registration"
+        const val TB_DANGER_SIGNS_OUTCOME = "HIV danger signs Outcome"
         const val FOLLOW_UP_VISIT = "TB Followup"
         const val TB_CASE_CLOSURE = "TB Case Closure"
         const val REFERRAL_FOLLOW_UP_VISIT = "Followup Visit"
@@ -41,6 +42,7 @@ object Constants {
     object Tables {
         const val TB = "ec_tb_register"
         const val TB_FOLLOWUP = "ec_tb_follow_up_visit"
+        const val TB_DANGER_SIGNS_OUTCOME = "ec_tb_danger_signs_outcome"
         const val FAMILY_MEMBER = "ec_family_member"
     }
 

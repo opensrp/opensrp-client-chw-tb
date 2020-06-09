@@ -42,6 +42,9 @@ object JsonFormUtils : JsonFormUtils() {
             Constants.EventType.FOLLOW_UP_VISIT -> {
                 Tables.TB_FOLLOWUP
             }
+            Constants.EventType.TB_DANGER_SIGNS_OUTCOME -> {
+                Tables.TB_DANGER_SIGNS_OUTCOME
+            }
             else -> null
         }
         return createEvent(

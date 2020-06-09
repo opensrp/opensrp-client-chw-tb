@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:weightSum="2">
 
         <org.smartregister.view.customcontrols.CustomFontTextView

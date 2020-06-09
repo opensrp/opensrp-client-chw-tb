@@ -6,6 +6,8 @@ import org.json.JSONObject
 import org.koin.core.inject
 import org.smartregister.chw.tb.TbLibrary
 import org.smartregister.chw.tb.contract.BaseRegisterFormsContract
+import org.smartregister.chw.tb.dao.TbDao
+import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.JsonFormConstants
 import org.smartregister.chw.tb.util.JsonFormUtils
 import org.smartregister.chw.tb.util.TbUtil.processEvent
@@ -31,6 +33,10 @@ class BaseRegisterFormsInteractor : BaseRegisterFormsContract.Interactor {
                 tbLibrary, baseEntityId, valuesHashMap,
                 jsonObject, jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE)
             )
+        if (jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE) == Constants.EventType.TB_DANGER_SIGNS_OUTCOME)
+            event.locationId =
+                TbDao.getSyncLocationId(baseEntityId) //Necessary for syncing the event back to the chw
+
         Timber.i("Event = %s", Gson().toJson(event))
         processEvent(tbLibrary, event)
         callBack.onRegistrationSaved(true, jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE))

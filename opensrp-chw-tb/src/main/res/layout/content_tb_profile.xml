@@ -157,7 +157,7 @@
             android:layout_below="@+id/view_tb_visit_date_row"
             android:background="@drawable/list_item_background_selctor"
             android:padding="18dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/tb_row_image"
