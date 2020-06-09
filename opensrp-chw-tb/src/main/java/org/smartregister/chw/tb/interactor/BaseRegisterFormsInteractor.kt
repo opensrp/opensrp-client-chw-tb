@@ -4,11 +4,8 @@ import com.google.gson.Gson
 import com.nerdstone.neatformcore.domain.model.NFormViewData
 import org.json.JSONObject
 import org.koin.core.inject
-import org.smartregister.chw.anc.AncLibrary
-import org.smartregister.chw.anc.util.NCUtils
 import org.smartregister.chw.tb.TbLibrary
 import org.smartregister.chw.tb.contract.BaseRegisterFormsContract
-import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.JsonFormConstants
 import org.smartregister.chw.tb.util.JsonFormUtils
 import org.smartregister.chw.tb.util.TbUtil.processEvent
@@ -36,19 +33,7 @@ class BaseRegisterFormsInteractor : BaseRegisterFormsContract.Interactor {
             )
         Timber.i("Event = %s", Gson().toJson(event))
         processEvent(tbLibrary, event)
-
-        when (Constants.EventType.FOLLOW_UP_VISIT) {
-            jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE) -> {
-                val visit = NCUtils.eventToVisit(
-                    event,
-                    org.smartregister.chw.anc.util.JsonFormUtils.generateRandomUUIDString()
-                )
-                visit.preProcessedJson = Gson().toJson(event)
-                AncLibrary.getInstance().visitRepository().addVisit(visit)
-            }
-        }
-
-        callBack.onRegistrationSaved(true,jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE))
+        callBack.onRegistrationSaved(true, jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE))
     }
 
 }
