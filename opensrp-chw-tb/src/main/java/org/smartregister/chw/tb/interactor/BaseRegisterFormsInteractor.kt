@@ -33,7 +33,7 @@ class BaseRegisterFormsInteractor : BaseRegisterFormsContract.Interactor {
                 tbLibrary, baseEntityId, valuesHashMap,
                 jsonObject, jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE)
             )
-        if (jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE) == Constants.EventType.TB_DANGER_SIGNS_OUTCOME)
+        if (jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE) == Constants.EventType.TB_OUTCOME)
             event.locationId =
                 TbDao.getSyncLocationId(baseEntityId) //Necessary for syncing the event back to the chw
 
