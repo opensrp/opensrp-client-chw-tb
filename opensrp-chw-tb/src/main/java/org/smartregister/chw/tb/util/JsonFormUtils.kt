@@ -45,6 +45,9 @@ object JsonFormUtils : JsonFormUtils() {
             Constants.EventType.TB_OUTCOME -> {
                 Tables.TB_OUTCOME
             }
+            Constants.EventType.TB_COMMUNITY_FOLLOWUP -> {
+                Tables.TB_COMMUNITY_FOLLOWUP
+            }
             else -> null
         }
         return createEvent(

@@ -72,6 +72,7 @@ open class BaseRegisterFormsPresenter(
             saveSuccessful && encounterType == Constants.EventType.REGISTRATION -> context.getString(R.string.successful_registration)
             saveSuccessful && encounterType == Constants.EventType.TB_CASE_CLOSURE -> context.getString(R.string.successful_tb_case_closure)
             saveSuccessful && encounterType == Constants.EventType.FOLLOW_UP_VISIT -> context.getString(R.string.successful_visit)
+            saveSuccessful && encounterType == Constants.EventType.TB_OUTCOME -> context.getString(R.string.successful_visit)
             else -> context.getString(R.string.form_not_saved)
         }
         Utils.showToast(context, toastMessage)

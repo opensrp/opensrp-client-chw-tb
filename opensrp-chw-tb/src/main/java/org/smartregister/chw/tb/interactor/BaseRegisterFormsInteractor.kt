@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.nerdstone.neatformcore.domain.model.NFormViewData
 import org.json.JSONObject
 import org.koin.core.inject
+import org.smartregister.chw.anc.util.NCUtils
 import org.smartregister.chw.tb.TbLibrary
 import org.smartregister.chw.tb.contract.BaseRegisterFormsContract
 import org.smartregister.chw.tb.dao.TbDao
@@ -33,12 +34,20 @@ class BaseRegisterFormsInteractor : BaseRegisterFormsContract.Interactor {
                 tbLibrary, baseEntityId, valuesHashMap,
                 jsonObject, jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE)
             )
-        if (jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE) == Constants.EventType.TB_OUTCOME)
-            event.locationId =
+        event.eventId = UUID.randomUUID().toString()
+        JsonFormUtils.tagEvent(tbLibrary, event)
+        when {
+            jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE) == Constants.EventType.TB_OUTCOME || jsonObject.getString(
+                JsonFormConstants.ENCOUNTER_TYPE
+            ) == Constants.EventType.TB_COMMUNITY_FOLLOWUP -> event.locationId =
                 TbDao.getSyncLocationId(baseEntityId) //Necessary for syncing the event back to the chw
+        }
 
         Timber.i("Event = %s", Gson().toJson(event))
-        processEvent(tbLibrary, event)
+        NCUtils.processEvent(
+            event.baseEntityId,
+            JSONObject(org.smartregister.chw.anc.util.JsonFormUtils.gson.toJson(event))
+        )
         callBack.onRegistrationSaved(true, jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE))
     }
 

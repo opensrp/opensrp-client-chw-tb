@@ -47,10 +47,9 @@ object TbUtil : KoinComponent {
     @Throws(Exception::class)
     fun processEvent(tbLibrary: TbLibrary, baseEvent: Event?) {
         if (baseEvent != null) {
-            JsonFormUtils.tagEvent(tbLibrary, baseEvent)
             val eventJson =
                 JSONObject(org.smartregister.util.JsonFormUtils.gson.toJson(baseEvent))
-            tbLibrary.syncHelper.addEvent(baseEvent.formSubmissionId, eventJson)
+            tbLibrary.syncHelper.addEvent(baseEvent.baseEntityId, eventJson)
             val lastSyncDate =
                 Date(tbLibrary.context.allSharedPreferences().fetchLastUpdatedAtDate(0))
             val eventClient =
