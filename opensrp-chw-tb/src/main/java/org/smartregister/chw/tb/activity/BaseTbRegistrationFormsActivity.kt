@@ -29,6 +29,7 @@ import org.smartregister.chw.tb.domain.TbMemberObject
 import org.smartregister.chw.tb.interactor.BaseRegisterFormsInteractor
 import org.smartregister.chw.tb.presenter.BaseRegisterFormsPresenter
 import org.smartregister.chw.tb.util.Constants
+import org.smartregister.chw.tb.util.DBConstants
 import org.smartregister.chw.tb.util.JsonFormConstants
 import timber.log.Timber
 import java.util.*
@@ -125,7 +126,7 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
 
                             if (jsonForm!!.getString(JsonFormConstants.ENCOUNTER_TYPE) == Constants.EventType.TB_COMMUNITY_FOLLOWUP_FEEDBACK) {
                                 //Saving referral form id
-                                formData[JsonFormConstants.TB_COMMUNITY_REFERRAL_FORM_ID] =
+                                formData[DBConstants.Key.COMMUNITY_REFERRAL_FORM_ID] =
                                     NFormViewData().apply {
                                         value = tbMemberObject!!.communityReferralFormId
                                     }

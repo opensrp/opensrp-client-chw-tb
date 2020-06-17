@@ -45,6 +45,7 @@ object Constants {
         const val TB = "ec_tb_register"
         const val TB_FOLLOWUP = "ec_tb_follow_up_visit"
         const val TB_COMMUNITY_FOLLOWUP = "ec_tb_community_followup"
+        const val TB_COMMUNITY_FEEDBACK = "ec_tb_community_feedback"
         const val TB_OUTCOME = "ec_tb_outcome"
         const val FAMILY_MEMBER = "ec_family_member"
     }
