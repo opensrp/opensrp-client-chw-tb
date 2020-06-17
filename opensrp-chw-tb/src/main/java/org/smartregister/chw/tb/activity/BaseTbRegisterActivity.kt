@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import org.json.JSONObject
 import org.smartregister.chw.tb.R
 import org.smartregister.chw.tb.contract.BaseTbRegisterContract
+import org.smartregister.chw.tb.fragment.BaseTbCommunityFollowupRegisterFragment
 import org.smartregister.chw.tb.fragment.BaseTbRegisterFragment
 import org.smartregister.chw.tb.listener.TbBottomNavigationListener
 import org.smartregister.chw.tb.model.BaseTbRegisterModel
@@ -102,7 +103,7 @@ open class BaseTbRegisterActivity : BaseRegisterActivity(),
 
     override fun getRegisterFragment() = BaseTbRegisterFragment()
 
-    override fun getOtherFragments() = arrayOf(Fragment())
+    override fun getOtherFragments() = arrayOf(BaseTbCommunityFollowupRegisterFragment())
 
     override fun presenter() = presenter as BaseTbRegisterContract.Presenter
 }

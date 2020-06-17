@@ -34,7 +34,6 @@ class BaseRegisterFormsInteractor : BaseRegisterFormsContract.Interactor {
                 tbLibrary, baseEntityId, valuesHashMap,
                 jsonObject, jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE)
             )
-        event.eventId = UUID.randomUUID().toString()
         JsonFormUtils.tagEvent(tbLibrary, event)
         when {
             jsonObject.getString(JsonFormConstants.ENCOUNTER_TYPE) == Constants.EventType.TB_OUTCOME || jsonObject.getString(

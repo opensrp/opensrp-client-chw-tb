@@ -29,6 +29,7 @@ object Constants {
         const val REGISTRATION = "TB Registration"
         const val TB_OUTCOME = "TB Outcome"
         const val TB_COMMUNITY_FOLLOWUP = "TB Community Followup"
+        const val TB_COMMUNITY_FOLLOWUP_FEEDBACK = "TB Community Followup Feedback"
         const val FOLLOW_UP_VISIT = "TB Followup"
         const val TB_CASE_CLOSURE = "TB Case Closure"
         const val REFERRAL_FOLLOW_UP_VISIT = "Followup Visit"
@@ -75,6 +76,7 @@ object DBConstants {
         const val MIDDLE_NAME = "middle_name"
         const val LAST_NAME = "last_name"
         const val BASE_ENTITY_ID = "base_entity_id"
+        const val ENTITY_ID = "entity_id"
         const val FAMILY_BASE_ENTITY_ID = "family_base_entity_id"
         const val DOB = "dob"
         const val DOD = "dod"
@@ -103,6 +105,12 @@ object DBConstants {
         const val CHW_FOLLOWUP_DATE = "chw_followup_date"
         const val TB_FOLLOWUP_VISIT_DATE = "tb_followup_visit_date"
         const val TB_CASE_CLOSURE_DATE = "tb_case_closure_date"
+        const val REASONS_FOR_ISSUING_COMMUNITY_REFERRAL = "reasons_for_issuing_community_referral"
+        const val TB_COMMUNITY_REFERRAL_DATE = "tb_community_referral_date"
+        const val LAST_INTERACTED_WITH = "last_interacted_with"
+        const val LAST_FACILITY_VISIT_DATE = "last_client_visit_date"
+        const val COMMENTS = "comment"
+        const val COMMUNITY_REFERRAL_FORM_ID = "community_referral_form_id"
     }
 }
 

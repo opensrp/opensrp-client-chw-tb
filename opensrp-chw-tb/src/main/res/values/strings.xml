@@ -97,4 +97,13 @@
     <string name="successful_tb_case_closure">Client\'s TB case closed successfully</string>
     <string name="successful_visit">Client TB visit saved successfully</string>
     <string name="form_not_saved">Form was not saved</string>
+    <string name="phone_not_provided">Phone not provided</string>
+    <string name="reasons_for_referral">Reasons for Referral</string>
+    <string name="last_facility_visit_date">Last facility visit date</string>
+    <string name="comments_label">Comments/Remarks</string>
+    <string name="chw">CHW</string>
+    <string name="chw_phone">CHW Phone</string>
+
+    <string name="fill_followup_form">Fill Follow-up Form</string>
+    <string name="view_profile">View Profile</string>
 </resources>

@@ -1,6 +1,5 @@
 package org.smartregister.chw.tb.contract
 
-import androidx.lifecycle.ViewModel
 import com.nerdstone.neatformcore.domain.model.NFormViewData
 import org.apache.commons.lang3.tuple.Triple
 import org.json.JSONObject
@@ -39,11 +38,6 @@ interface BaseRegisterFormsContract {
          * retrieves the [View]
          */
         fun getView(): View?
-
-        /**
-         * Returns [Class] that extends [ViewModel] and implements [Model]
-         */
-        fun <T> getViewModel(): Class<T> where T : ViewModel, T : Model
 
         /**
          * returns where clause [String] passed on the query
@@ -114,6 +108,6 @@ interface BaseRegisterFormsContract {
 
         fun onNoUniqueId()
 
-        fun onRegistrationSaved(saveSuccessful: Boolean,encounterType: String)
+        fun onRegistrationSaved(saveSuccessful: Boolean, encounterType: String)
     }
 }

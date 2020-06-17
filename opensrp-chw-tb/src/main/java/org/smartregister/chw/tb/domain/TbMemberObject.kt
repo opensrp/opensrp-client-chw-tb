@@ -36,4 +36,9 @@ data class TbMemberObject(val client: CommonPersonObjectClient?) : Serializable 
     var tbRegistrationDate: Date? = null
     var familyMemberEntityType: String? = client?.columnmaps?.get(DBConstants.Key.FAMILY_MEMBER_ENTITY_TYPE)
     var isClosed: Boolean? = client?.columnmaps?.get(DBConstants.Key.IS_CLOSED) == "1"
+    var tbCommunityReferralDate: Date? = null
+    var lastFacilityVisitDate: Date? = null
+    var comment: String? = client?.columnmaps?.get(DBConstants.Key.COMMENTS)
+    var reasonsForIssuingCommunityFollowupReferral: String? = client?.columnmaps?.get(DBConstants.Key.REASONS_FOR_ISSUING_COMMUNITY_REFERRAL)
+    var communityReferralFormId: String? = client?.columnmaps?.get(DBConstants.Key.COMMUNITY_REFERRAL_FORM_ID)
 }
