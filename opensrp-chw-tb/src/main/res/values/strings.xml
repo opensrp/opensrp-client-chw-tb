@@ -106,4 +106,5 @@
 
     <string name="fill_followup_form">Fill Follow-up Form</string>
     <string name="view_profile">View Profile</string>
+    <string name="separator"> -  {0}</string>
 </resources>

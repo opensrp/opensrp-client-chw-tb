@@ -99,7 +99,7 @@ open class BaseTbCommunityFollowupDetailsActivity : SecuredActivity(), View.OnCl
             lastFacilityVisitDate.text = dateFormatter.format(referralDateCalendar.time)
 
             referralType.text = it.reasonsForIssuingCommunityFollowupReferral
-            if (!it.primaryCareGiver.isNullOrEmpty() && clientAge.toInt() < 5)
+            if (!it.primaryCareGiver.isNullOrEmpty())
                 careGiverName.text = String.format("CG : %s", it.primaryCareGiver)
             else
                 careGiverName.visibility = View.GONE
@@ -134,6 +134,9 @@ open class BaseTbCommunityFollowupDetailsActivity : SecuredActivity(), View.OnCl
                 }
                 StringUtils.isNoneEmpty(memberObject!!.familyHeadPhoneNumber) -> {
                     phoneNumber = memberObject!!.familyHeadPhoneNumber
+                }
+                StringUtils.isNoneEmpty(memberObject!!.primaryCareGiverPhoneNumber) -> {
+                    phoneNumber = memberObject!!.primaryCareGiverPhoneNumber
                 }
             }
             return phoneNumber

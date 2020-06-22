@@ -18,7 +18,7 @@ object TbDao : AbstractDao() {
             memberObject.firstName = getCursorValue(cursor, DBConstants.Key.FIRST_NAME, "")
             memberObject.middleName = getCursorValue(cursor, DBConstants.Key.MIDDLE_NAME, "")
             memberObject.lastName = getCursorValue(cursor, DBConstants.Key.LAST_NAME, "")
-            memberObject.address = getCursorValue(cursor, DBConstants.Key.VILLAGE_TOWN)!!
+            memberObject.address = getCursorValue(cursor, DBConstants.Key.VILLAGE_TOWN,"")
             memberObject.gender = getCursorValue(cursor, DBConstants.Key.GENDER)!!
             memberObject.uniqueId = getCursorValue(cursor, DBConstants.Key.UNIQUE_ID, "")
             memberObject.age = getCursorValue(cursor, DBConstants.Key.DOB)!!

@@ -108,9 +108,16 @@ open class BaseTbRegisterProvider(
                     Locale.getDefault(), "%s, %d", patientName, age
                 )
                 textViewGender.text = Utils.getValue(pc.columnmaps, DBConstants.Key.GENDER, true)
-                textViewVillage.text =
-                    Utils.getValue(pc.columnmaps, DBConstants.Key.VILLAGE_TOWN, true)
-
+                val village = Utils.getValue(pc.columnmaps, DBConstants.Key.VILLAGE_TOWN, true)
+                when {
+                    village.isNotEmpty() -> {
+                        textViewVillage.text = MessageFormat.format(
+                            context.getString(R.string.separator),
+                            Utils.getValue(pc.columnmaps, DBConstants.Key.VILLAGE_TOWN, true)
+                        )
+                    }
+                }
+                textViewGender.text = Utils.getValue(pc.columnmaps, DBConstants.Key.GENDER, true)
                 patientColumn.apply {
                     setOnClickListener(onClickListener)
                     tag = pc
