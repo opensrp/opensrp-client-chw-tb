@@ -108,13 +108,12 @@ dependencies {
         exclude group: 'androidx.constraintlayout', module: 'constraintlayout'
     }
 
-    api('org.smartregister:opensrp-client-chw-anc:0.1.39-SNAPSHOT@aar') {
+    api('org.smartregister:opensrp-client-chw-anc:0.1.61-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'org.smartregister', module: 'opensrp-client-core'
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'org.smartregister', module: 'opensrp-client-native-form'
         exclude group: 'org.smartregister', module: 'opensrp-client-configurable-views'
-        exclude group: 'org.smartregister', module: 'opensrp-client-immunization'
     }
 
     // Koin for Android dependency injection
