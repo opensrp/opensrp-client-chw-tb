@@ -1,6 +1,5 @@
 package org.smartregister.chw.tb.presenter
 
-import androidx.lifecycle.ViewModel
 import com.nerdstone.neatformcore.domain.model.NFormViewData
 import io.mockk.spyk
 import io.mockk.verifyAll
@@ -8,23 +7,29 @@ import org.json.JSONObject
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+import org.smartregister.chw.tb.TestTbApp
 import org.smartregister.chw.tb.contract.BaseRegisterFormsContract
 import org.smartregister.chw.tb.domain.TbMemberObject
-import org.smartregister.chw.tb.model.AbstractRegisterFormModel
-import org.smartregister.chw.tb.model.BaseRegisterFormModel
+import org.smartregister.chw.tb.interactor.BaseRegisterFormsInteractor
+import org.smartregister.chw.tb.model.BaseTbRegisterFragmentModel
 import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.DBConstants
 import org.smartregister.commonregistry.CommonPersonObjectClient
 
+@RunWith(RobolectricTestRunner::class)
+@Config(application = TestTbApp::class)
 class BaseRegisterFormsPresenterTest {
 
     private val registerFormsView: BaseRegisterFormsContract.View = spyk()
-    private val registerFormsInteractor: BaseRegisterFormsContract.Interactor = spyk()
+    private val registerFormsInteractor = BaseRegisterFormsInteractor()
     private val sampleBaseEntityId = "5a5mple-b35eent"
     private val baseRegisterFormsPresenter: BaseRegisterFormsContract.Presenter =
         spyk(
             BaseRegisterFormsPresenter(
-                sampleBaseEntityId, registerFormsView, AbstractRegisterFormModel::class.java,
+                sampleBaseEntityId, registerFormsView,
                 registerFormsInteractor
             ),
             recordPrivateCalls = true
@@ -33,7 +38,7 @@ class BaseRegisterFormsPresenterTest {
 
     @Before
     fun `Just before tests`() {
-        val columnNames = BaseRegisterFormModel()
+        val columnNames = BaseTbRegisterFragmentModel()
             .mainColumns(Constants.Tables.FAMILY_MEMBER).map {
                 it.replace("${Constants.Tables.FAMILY_MEMBER}.", "")
             }.toTypedArray()
@@ -53,11 +58,6 @@ class BaseRegisterFormsPresenterTest {
     @Test
     fun `Should return view`() {
         Assert.assertNotNull(baseRegisterFormsPresenter.getView())
-    }
-
-    @Test
-    fun `Should return the view model`() {
-        Assert.assertNotNull(baseRegisterFormsPresenter.getViewModel<AbstractRegisterFormModel>() is ViewModel)
     }
 
     @Test
@@ -82,18 +82,5 @@ class BaseRegisterFormsPresenterTest {
     fun `Should update the member object`() {
         baseRegisterFormsPresenter.initializeMemberObject(tbMemberObject)
         Assert.assertNotNull((baseRegisterFormsPresenter as BaseRegisterFormsPresenter).tbMemberObject)
-    }
-
-    @Test
-    fun `Should call save registration method of interactor`() {
-        val valuesHashMap = hashMapOf<String, NFormViewData>()
-        val jsonFormObject = JSONObject()
-        baseRegisterFormsPresenter.saveForm(valuesHashMap, jsonFormObject)
-        verifyAll {
-            registerFormsInteractor.saveRegistration(
-                sampleBaseEntityId, valuesHashMap, jsonFormObject,
-                baseRegisterFormsPresenter as BaseRegisterFormsPresenter
-            )
-        }
     }
 }

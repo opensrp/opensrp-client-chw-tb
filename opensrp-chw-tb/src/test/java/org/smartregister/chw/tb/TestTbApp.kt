@@ -8,7 +8,7 @@ import org.smartregister.CoreLibrary
 import timber.log.Timber
 import java.lang.reflect.Method
 
-class TestReferralApp : Application(), TestLifecycleApplication {
+class TestTbApp : Application(), TestLifecycleApplication {
 
     override fun onCreate() {
         super.onCreate()

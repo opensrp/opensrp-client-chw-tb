@@ -8,14 +8,14 @@ import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import org.smartregister.chw.tb.TestReferralApp
+import org.smartregister.chw.tb.TestTbApp
 import org.smartregister.chw.tb.contract.BaseTbRegisterFragmentContract
 import org.smartregister.chw.tb.model.BaseTbRegisterFragmentModel
 import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.DBConstants
 
 @RunWith(RobolectricTestRunner::class)
-@Config(application = TestReferralApp::class)
+@Config(application = TestTbApp::class)
 class BaseTbRegisterFragmentPresenterTest {
 
     private val tbRegisterFragmentView: BaseTbRegisterFragmentContract.View = spyk()

@@ -4,9 +4,15 @@ import io.mockk.spyk
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+import org.smartregister.chw.tb.TestTbApp
 import org.smartregister.chw.tb.contract.BaseTbRegisterContract
 import org.smartregister.chw.tb.model.BaseTbRegisterModel
 
+@RunWith(RobolectricTestRunner::class)
+@Config(application = TestTbApp::class)
 class BaseTbRegisterPresenterTest {
 
     private val tbHistoryView: BaseTbRegisterContract.View = spyk()
