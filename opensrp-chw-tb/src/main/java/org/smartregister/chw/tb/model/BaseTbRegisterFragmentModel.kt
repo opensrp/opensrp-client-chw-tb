@@ -47,7 +47,7 @@ open class BaseTbRegisterFragmentModel :
         return queryBUilder.mainCondition(mainCondition)
     }
 
-    protected open fun mainColumns(tableName: String?) = arrayOf("$tableName.relationalid")
+    open fun mainColumns(tableName: String?) = arrayOf("$tableName.relationalid")
 
     override fun getFilterText(filterList: List<Field?>?, filter: String?): String? {
         return """<font color=#727272>${filter ?: ""}</font> <font color=#f0ab41>("${(filterList
