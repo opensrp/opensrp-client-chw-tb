@@ -1,0 +1,152 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:scrollbars="none"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            style="@style/CustomFontTextViewStyle.ClientList.NoPadding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/referral_information"
+            android:textColor="@color/text_blue"
+            android:textSize="20sp"
+            app:fontVariant="medium" />
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/referral_date"
+            style="@style/CustomFontTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="12/12/1999"
+            android:textSize="16sp" />
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/referral_date_title"
+            style="@style/CustomFontTextViewStyle.ClientList.Light"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="@string/referral_date_label"
+            android:textColor="@color/dark_grey_text"
+            android:textSize="14sp" />
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/followUp_reason"
+            style="@style/CustomFontTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="Referral Reason"
+            android:textSize="16sp" />
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/sababu_ya_rufaa_title"
+            style="@style/CustomFontTextViewStyle.ClientList.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="@string/referral_reason"
+            android:textColor="@color/dark_grey_text"
+            android:textSize="14sp" />
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/referer_name_value"
+            style="@style/CustomFontTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/referer_name_title"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="Chw One"
+            android:textSize="16sp" />
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/referer_name_title"
+            style="@style/CustomFontTextViewStyle.ClientList.Light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="Referral Issued by"
+            android:textColor="@color/dark_grey_text"
+            android:textSize="14sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="32dp"
+            android:background="@color/me_page_line_separator" />
+
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/feedback_title"
+            style="@style/CustomFontTextViewStyle.ClientList.NoPadding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@string/followup_feedback"
+            android:textColor="@color/text_blue"
+            android:textSize="20sp"
+            app:fontVariant="medium" />
+
+        <LinearLayout
+            android:id="@+id/formLayout"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/save"
+                android:backgroundTint="@color/text_blue"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
