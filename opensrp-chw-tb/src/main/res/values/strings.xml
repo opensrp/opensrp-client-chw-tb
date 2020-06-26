@@ -3,6 +3,7 @@
     <string name="error_unable_to_start_form">An error occurred when starting the form</string>
     <string name="error_unable_to_save_form">An error occurred when saving the form</string>
     <string name="tb_clients">TB Clients</string>
+    <string name="tb_community_followup_clients">TB Community Followup Clients</string>
     <string name="followup_referral">TB Followup Referrals</string>
 
     <!-- menu -->
