@@ -1,9 +1,7 @@
 package org.smartregister.chw.tb.presenter
 
-import com.nerdstone.neatformcore.domain.model.NFormViewData
 import io.mockk.spyk
 import io.mockk.verifyAll
-import org.json.JSONObject
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test

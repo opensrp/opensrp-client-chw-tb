@@ -1,9 +1,8 @@
 package org.smartregister.chw.tb.presenter
 
 import io.mockk.spyk
+import org.junit.Assert.assertNotNull
 import org.junit.Test
-
-import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
