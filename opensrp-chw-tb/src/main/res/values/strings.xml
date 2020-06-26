@@ -107,4 +107,9 @@
     <string name="fill_followup_form">Fill Follow-up Form</string>
     <string name="view_profile">View Profile</string>
     <string name="separator"> -  {0}</string>
+
+    <string name="view_followup_feedback_info">View full feedback info</string>
+    <string name="feedback_day">Feedback %s ago</string>
+    <string name="mark_feedback_as_done_message">Community feedback will be closed and disappear from app.</string>
+    <string name="feedback_due_only">Feedback</string>
 </resources>
