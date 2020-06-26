@@ -22,7 +22,9 @@ import org.joda.time.DateTime
 import org.joda.time.Period
 import org.json.JSONException
 import org.json.JSONObject
+import org.koin.core.inject
 import org.smartregister.chw.tb.R
+import org.smartregister.chw.tb.TbLibrary
 import org.smartregister.chw.tb.contract.BaseRegisterFormsContract
 import org.smartregister.chw.tb.dao.TbDao
 import org.smartregister.chw.tb.domain.TbMemberObject
@@ -60,6 +62,7 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
     private lateinit var exitFormImageView: ImageView
     private lateinit var completeButton: ImageView
     var tbMemberObject: TbMemberObject? = null
+    val tbLibrary by inject<TbLibrary>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -129,6 +132,15 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
                                 formData[DBConstants.Key.COMMUNITY_REFERRAL_FORM_ID] =
                                     NFormViewData().apply {
                                         value = tbMemberObject!!.communityReferralFormId
+                                    }
+
+                                //Saving chw names
+                                val allSharedPreferences = tbLibrary.context.allSharedPreferences()
+                                formData[DBConstants.Key.CHW_NAME] =
+                                    NFormViewData().apply {
+                                        value = allSharedPreferences.getANMPreferredName(
+                                            allSharedPreferences.fetchRegisteredANM()
+                                        )
                                     }
                             }
 

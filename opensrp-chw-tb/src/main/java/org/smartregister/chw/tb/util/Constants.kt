@@ -112,6 +112,7 @@ object DBConstants {
         const val LAST_FACILITY_VISIT_DATE = "last_client_visit_date"
         const val COMMENTS = "comment"
         const val COMMUNITY_REFERRAL_FORM_ID = "community_referral_form_id"
+        const val CHW_NAME = "chw_name"
     }
 }
 
