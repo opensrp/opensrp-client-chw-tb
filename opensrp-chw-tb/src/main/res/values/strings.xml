@@ -113,4 +113,10 @@
     <string name="feedback_day">Feedback %s ago</string>
     <string name="mark_feedback_as_done_message">Community feedback will be closed and disappear from app.</string>
     <string name="feedback_due_only">Feedback</string>
+    <string name="tb_community_followup_referral_issued">TB Client Community followup referral issued to CHW</string>
+    <string name="tb_outcome_saved">TB Problem outcome saved</string>
+    <string name="tb_community_followup_feedback_saved">TB Community followup feedback saved</string>
+    <string name="form_saved">Form saved successfully</string>
+    <string name="tb_positive_status">TB Positive</string>
+    <string name="tb_negative_status">TB Negative</string>
 </resources>
