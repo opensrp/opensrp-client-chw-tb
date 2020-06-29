@@ -63,7 +63,7 @@ open class BaseRegisterFormsPresenter(
         val context = getView() as Activity
         val toastMessage = when {
             saveSuccessful && encounterType == Constants.EventType.REGISTRATION -> context.getString(
-                R.string.successful_registration
+                R.string.successful_tb_registration
             )
             saveSuccessful && encounterType == Constants.EventType.TB_CASE_CLOSURE -> context.getString(
                 R.string.successful_tb_case_closure

@@ -146,11 +146,6 @@ open class BaseTbRegistrationFormsActivity : AppCompatActivity(), BaseRegisterFo
 
                             presenter!!.saveForm(formData, jsonForm!!)
 
-                            Toast.makeText(
-                                applicationContext,
-                                getString(R.string.successful_registration),
-                                Toast.LENGTH_LONG
-                            ).show()
                             Timber.d("Saved Data = %s", Gson().toJson(formData))
                             val intent = Intent()
                             setResult(Activity.RESULT_OK, intent);
