@@ -340,8 +340,8 @@ open class BaseTbProfileActivity : BaseProfileActivity(),
                 R.string.days
             )
         )
-        rlLastVisitLayout!!.visibility = View.VISIBLE
-        lastVisitRow!!.visibility = View.VISIBLE
+        rlLastVisitLayout!!.visibility = View.GONE
+        lastVisitRow!!.visibility = View.GONE
     }
 
     override fun onMemberDetailsReloaded(tbMemberObject: TbMemberObject?) {

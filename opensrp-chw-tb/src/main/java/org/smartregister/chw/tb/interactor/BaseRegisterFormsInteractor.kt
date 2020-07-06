@@ -11,7 +11,6 @@ import org.smartregister.chw.tb.dao.TbDao
 import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.JsonFormConstants
 import org.smartregister.chw.tb.util.JsonFormUtils
-import org.smartregister.chw.tb.util.TbUtil.processEvent
 import timber.log.Timber
 import java.util.*
 

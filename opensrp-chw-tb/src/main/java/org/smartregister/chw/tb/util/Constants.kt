@@ -104,7 +104,7 @@ object DBConstants {
         const val IS_CLOSED = "is_closed"
         const val FAMILY_MEMBER_ENTITY_TYPE = "entity_type"
         const val CHW_FOLLOWUP_DATE = "chw_followup_date"
-        const val TB_FOLLOWUP_VISIT_DATE = "tb_followup_visit_date"
+        const val TB_COMMUNITY_FOLLOWUP_VISIT_DATE = "tb_community_followup_visit_date"
         const val TB_CASE_CLOSURE_DATE = "tb_case_closure_date"
         const val REASONS_FOR_ISSUING_COMMUNITY_REFERRAL = "reasons_for_issuing_community_referral"
         const val TB_COMMUNITY_REFERRAL_DATE = "tb_community_referral_date"
@@ -112,6 +112,7 @@ object DBConstants {
         const val LAST_FACILITY_VISIT_DATE = "last_client_visit_date"
         const val COMMENTS = "comment"
         const val COMMUNITY_REFERRAL_FORM_ID = "community_referral_form_id"
+        const val CHW_NAME = "chw_name"
     }
 }
 

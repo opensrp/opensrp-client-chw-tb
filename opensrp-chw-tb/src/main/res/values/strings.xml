@@ -3,6 +3,7 @@
     <string name="error_unable_to_start_form">An error occurred when starting the form</string>
     <string name="error_unable_to_save_form">An error occurred when saving the form</string>
     <string name="tb_clients">TB Clients</string>
+    <string name="tb_community_followup_clients">Followup Clients</string>
     <string name="followup_referral">TB Followup Referrals</string>
 
     <!-- menu -->
@@ -93,7 +94,7 @@
     <string name="tb_visit_day_next_due">Next Due %s </string>
     <string name="tb_visit_day_overdue">%s DAYS OVERDUE</string>
     <string name="tb_visit_day_overdue_today">OVERDUE TODAY</string>
-    <string name="successful_registration">Client Registered to TB successfully</string>
+    <string name="successful_tb_registration">Client Registered to TB successfully</string>
     <string name="successful_tb_case_closure">Client\'s TB case closed successfully</string>
     <string name="successful_visit">Client TB visit saved successfully</string>
     <string name="form_not_saved">Form was not saved</string>
@@ -107,4 +108,15 @@
     <string name="fill_followup_form">Fill Follow-up Form</string>
     <string name="view_profile">View Profile</string>
     <string name="separator"> -  {0}</string>
+
+    <string name="view_followup_feedback_info">View full feedback info</string>
+    <string name="feedback_day">Feedback %s ago</string>
+    <string name="mark_feedback_as_done_message">Community feedback will be closed and disappear from app.</string>
+    <string name="feedback_due_only">Feedback</string>
+    <string name="tb_community_followup_referral_issued">TB Client Community followup referral issued to CHW</string>
+    <string name="tb_outcome_saved">TB Problem outcome saved</string>
+    <string name="tb_community_followup_feedback_saved">TB Community followup feedback saved</string>
+    <string name="form_saved">Form saved successfully</string>
+    <string name="tb_positive_status">TB Positive</string>
+    <string name="tb_negative_status">TB Negative</string>
 </resources>

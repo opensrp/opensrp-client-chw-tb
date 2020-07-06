@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.annotation.MenuRes
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.LabelVisibilityMode
 import org.json.JSONObject
 import org.smartregister.chw.tb.R
@@ -18,7 +17,6 @@ import org.smartregister.chw.tb.util.Constants
 import org.smartregister.helper.BottomNavigationHelper
 import org.smartregister.listener.BottomNavigationListener
 import org.smartregister.view.activity.BaseRegisterActivity
-import timber.log.Timber
 
 /**
  * Created by cozej4 on 2020-05-13.
