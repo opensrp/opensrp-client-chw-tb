@@ -8,6 +8,9 @@ import org.smartregister.CoreLibrary
 import timber.log.Timber
 import java.lang.reflect.Method
 
+/**
+ * TestApplication used across various tests
+ */
 class TestTbApp : Application(), TestLifecycleApplication {
 
     override fun onCreate() {

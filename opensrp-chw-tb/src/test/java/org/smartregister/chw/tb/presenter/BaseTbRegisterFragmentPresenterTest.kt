@@ -13,6 +13,9 @@ import org.smartregister.chw.tb.model.BaseTbRegisterFragmentModel
 import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.DBConstants
 
+/**
+ * Test class for testing various methods in BaseTbRegisterFragmentPresenter
+ */
 @RunWith(RobolectricTestRunner::class)
 @Config(application = TestTbApp::class)
 class BaseTbRegisterFragmentPresenterTest {

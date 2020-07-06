@@ -17,6 +17,9 @@ import org.smartregister.chw.tb.util.Constants
 import org.smartregister.chw.tb.util.DBConstants
 import org.smartregister.commonregistry.CommonPersonObjectClient
 
+/**
+ * Test class for testing various methods in BaseRegisterFormsPresenter
+ */
 @RunWith(RobolectricTestRunner::class)
 @Config(application = TestTbApp::class)
 class BaseRegisterFormsPresenterTest {

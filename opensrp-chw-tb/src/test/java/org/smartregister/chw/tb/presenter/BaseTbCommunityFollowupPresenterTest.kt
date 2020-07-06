@@ -16,6 +16,9 @@ import org.smartregister.chw.tb.util.Constants
 import org.smartregister.commonregistry.CommonPersonObjectClient
 import java.util.*
 
+/**
+ * Test class for testing various methods in BaseTbCommunityFollowupPresenter
+ */
 @RunWith(RobolectricTestRunner::class)
 @Config(application = TestTbApp::class)
 class BaseTbCommunityFollowupPresenterTest {

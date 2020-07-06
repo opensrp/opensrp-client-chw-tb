@@ -10,6 +10,9 @@ import org.smartregister.chw.tb.TestTbApp
 import org.smartregister.chw.tb.contract.BaseTbRegisterContract
 import org.smartregister.chw.tb.model.BaseTbRegisterModel
 
+/**
+ * Test class for testing various methods in BaseTbRegisterPresenter
+ */
 @RunWith(RobolectricTestRunner::class)
 @Config(application = TestTbApp::class)
 class BaseTbRegisterPresenterTest {
