@@ -1,48 +1,25 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "org.smartregister.chw.tb.sample"
         minSdkVersion 18
-        targetSdkVersion 28
+        targetSdkVersion 29
         multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    dexOptions {
-        preDexLibraries = false
-        javaMaxHeapSize "4g"
-    }
-
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "int", "DATABASE_VERSION", '1'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-
-        debug {
-            buildConfigField "int", "DATABASE_VERSION", '1'
-        }
-    }
-
-    packagingOptions {
-        exclude 'META-INF/DEPENDENCIES.txt'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/license.txt'
-        exclude 'META-INF/dependencies.txt'
-        exclude 'META-INF/LGPL2.1'
-        exclude 'LICENSE.txt'
-        exclude 'org/apache/http/version.properties'
-        exclude 'org/apache/http/client/version.properties'
     }
 
     compileOptions {
@@ -55,21 +32,16 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':opensrp-chw-tb')
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.media:media:1.1.0'
-    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    implementation('org.smartregister:opensrp-client-configurable-views:1.1.2-SNAPSHOT@aar') {
-        transitive = true
-        exclude group: 'org.smartregister', module: 'opensrp-client-core'
-        exclude group: 'org.smartregister', module: 'opensrp-client-native-form'
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    }
-
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+configurations{
+    all*.exclude group: 'com.rengwuxian.materialedittext'
 }
