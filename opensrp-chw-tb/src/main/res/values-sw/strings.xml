@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">opensrp rufa za waja</string>
+    <string name="error_unable_to_start_form">tatatizo limetokea wakati wa kufungua fomu</string>
+    <string name="error_unable_to_save_form">Tatizo limetokea wakati wa kuhifadhi fomu</string>
+    <string name="tb_clients">mteja wa TB</string>
+    <string name="followup_referral">rufaa ya ufatiliyaji ya TB</string>
+
+    <!-- menu -->
+    <string name="add_member">ongeza mwanafamiliya</string>
+    <string name="sort">pamga</string>
+    <string name="home">nyumbani</string>
+    <string name="add_family">Sajili kaya</string>
+    <string name="scan_qr">Soma QR</string>
+    <string name="job_aids">fisaidizi kazi</string>
+    <string name="saving_dialog_title">inahifadhiwa</string>
+    <string name="referral_followup_visit">ufatiliaji\n</string>
+    <string name="record_followup">rikodi ufatiliaji</string>
+    <string name="return_to_previous">Kufudishawa wateja wote wa rufaa</string>
+    <string name="last_visit_40_days_ago">mara ya mwisho kumtemebelea%1$szilizopita</string>
+    <string name="view_medical_history">Angalia historia ya matibabu</string>
+    <string name="view_upcoming_services">Angaliya huduma zinazofuwata</string>
+    <string name="go_to_family_s_profile">nenda kwenye ukurasa wa familiya</string>
+    <string name="go_to_client_s_profile">funguwa faili la mteja</string>
+    <string name="family_head">Mkuu wa familiya</string>
+    <string name="call_referral_client">moigiye simu mteja wa rufaa</string>
+    <string name="head_of_family">Mkuu wa familiay</string>
+    <string name="tb_client">mteja wa kifuwa kikuu</string>
+    <string name="copy_to_clipboard">imenakiliwa</string>
+    <string name="copied_phone_number">number ya simu imenakiliwa</string>
+    <string name="call">Piga simu</string>
+    <string name="record_anc">Rekodi ufatiliyaji wa ANC</string>
+    <string name="action_tb_clients">Mteja wa Kifuwa kikuu</string>
+    <string name="action_received_tb_followup_referrals">ufatiliyaji</string>
+
+    <string name="referral_information">taharifa ya rufaa</string>
+    <string name="visit_facility_hint">jaza jina la kituo</string>
+    <string name="referral_reason">Sababu ya rufaa</string>
+
+
+    <string name="followup_feedback">mrejesho wa ufatiliyaji</string>
+    <string name="hint_missing_reasons">chakuwa mrejesho</string>
+    <string name="other_followup_feedback_information">Maelezo zaidi m.f. hali ya mteja</string>
+    <string name="referral_date_label">tarehe ya rufaa</string>
+    <string name="gender">jisia</string>
+    <string name="patient_name_age">jina la mteja , Umri</string>
+    <string name="missing_client_condition_during_visit">Jaza tarifa za hali ya mteja wakati wa kumtembelea</string>
+    <string name="missing_feedback">Chaguwa mrejesho</string>
+    <string name="complete">kamili</string>
+    <string name="finish">Maliza</string>
+    <string name="back_to_referrals">Rudi kwenye rufaa</string>
+    <string name="phone">simu</string>
+    <string name="problem">Tatiza</string>
+    <string name="referral_date">Tarehe ya rufaa</string>
+    <string name="tb_on">Washa</string>
+    <string name="tb_client_registered_text">wateja waliosajiliwa %s %s</string>
+    <string name="call_tb_client">Pigi sumu kwa mteja wa kifuwa kikuu</string>
+
+    <string name="tb_return_to_previous_page">rudi kwenye orodha ya wateja wa Kifuwa kikuu</string>
+    <string name="record_tb_followup">Rikodi ufatiliyaji wa kifuwa kikuu</string>
+    <string name="tb_visit_done">Ufatiliyaji wa kifuwa kikuu umekamilika</string>
+    <string name="tb_visit_edit">Hariri</string>
+    <string name="last_visit">mara ya mwisho kumtemebelea</string>
+    <string name="view_tb_registration">Angaliya rejista ya kifuwa kikuu</string>
+    <string name="last_visit_n_days_ago">mara ya mwisho kumtembelea %1$s zilizopita</string>
+    <string name="less_than_twenty_four">chini ya masaa 24</string>
+    <!--Referral Strings -->
+    <string name="confirm_form_close">hakiki kufunga fomu</string>
+    <string name="yes">ndio</string>
+    <string name="no">napana</string>
+    <string name="empty_value">Hakuna</string>
+    <string name="save">hifadhi</string>
+
+    <string name="tb_follow_up_visit">ufatiliyaji wa kifuwa kikuu</string>
+    <string name="successful_registration">umefanyikiwa kusajili mteja wa kifuwa kikuu</string>
+    <string name="successful_tb_case_closure">umefanyikiwa kufunga kesi ya mteja wa kifuwa kikuu</string>
+    <string name="successful_visit">umefanyikiwa kuhifadhi ufatiliyaji wa mginjwa wa kifuwa kikuu</string>
+    <string name="form_not_saved">fomu haijahifadhiwa</string>
+    <string name="phone_not_provided">number haijatolewa</string>
+    <string name="reasons_for_referral">sababu ya rufaa</string>
+    <string name="last_facility_visit_date">tarehe ya mwisho ya kwenda kituo cha afya </string>
+    <string name="comments_label">maoni</string>
+    <string name="chw">waja</string>
+    <string name="chw_phone">numba ya waja</string>
+
+    <string name="fill_followup_form">jaza fomu ya ufatiliaji</string>
+    <string name="view_profile">angaliya file </string>
+    <string name="separator"> - {0}</string>
+</resources>
