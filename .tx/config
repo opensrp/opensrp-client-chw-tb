@@ -1,0 +1,5 @@
+[project_slug.resource_slug]
+file_filter = opensrp-chw-tb/src/main/res/values-<lang>/strings.xml
+source_file =  opensrp-chw-tb/src/main/res/values/strings.xml
+source_lang = en
+type = ANDROID
